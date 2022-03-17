@@ -1,5 +1,5 @@
 ﻿Feature: Forgot password feature
-	Simple calculator for adding two numbers
+	A demo feature file which shows the facebook forgot password page
 
 @mynewtag
 Scenario: User has forgotten password
@@ -9,3 +9,11 @@ Scenario: User has forgotten password
 	When I click the "forgot password" link
 	Then I land on the "Find your account page"
 	And I enter my username
+
+@mynewtag
+Scenario: User has forgotten password again
+	Given I Navigate to the "facebook" homepage	
+	And I accept all recommended cookies 
+	When I click the "forgot password" link
+	Then I land on the "Find your account page"
+	And I enter my username poorly

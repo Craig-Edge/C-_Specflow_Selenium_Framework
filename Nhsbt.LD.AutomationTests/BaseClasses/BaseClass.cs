@@ -16,10 +16,7 @@ using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace Nhsbt.LD.AutomationTests.BaseClasses
-{
-    [TestClass]
-   
-    //[SetUpFixture]
+{      
     public class BaseClass
     {
 
@@ -46,12 +43,8 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
         {
             IWebDriver driver = new EdgeDriver(EdgeOptions());
             return driver;
-        }
-
-        
-        //[SetUp]
-        //[AssemblyInitialize]
-        
+        }        
+      
         public static void InitWebDriver()
         {
             ObjectRepository.Config = new AppConfigReader();
@@ -67,11 +60,8 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
                 default:                
                     throw new NoSuitableDriverFound("Driver Not Found " + ObjectRepository.Config.GetBrowser().ToString());
             }
-        }
-
-     
-       //[TearDown]
-        //[AssemblyCleanup]
+        }     
+      
         public static void TearDown()
         {
             if(ObjectRepository.Driver != null)

@@ -1,5 +1,6 @@
 ﻿using Nhsbt.LD.AutomationTests.Settings;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,5 +32,19 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
                 return false;
             }           
         }   
+
+        public static void TakeScreenShot(string filename = "Screen")
+        {
+            Screenshot screen = ObjectRepository.Driver.TakeScreenshot();
+            if(filename.Equals("Screen"))
+            {
+                filename = filename + DateTime.UtcNow.ToString("dd-MM-yyyy-mm-ss") + ".jpeg";
+                screen.SaveAsFile(filename, ScreenshotImageFormat.Jpeg);                
+            }
+            else
+            {
+                screen.SaveAsFile(filename, ScreenshotImageFormat.Jpeg);
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript.GUI.FeatureFiles
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Forgot password feature", Description="\tSimple calculator for adding two numbers", SourceFile="TestScript\\GUI\\FeatureFiles\\SpecFlowFeature1.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("Forgot password feature", Description="\tA demo feature file which shows the facebook forgot password page", SourceFile="TestScript\\GUI\\FeatureFiles\\SpecFlowFeature1.feature", SourceLine=0)]
     public partial class ForgotPasswordFeatureFeature
     {
         
@@ -34,7 +34,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript.GUI.FeatureFiles
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "TestScript/GUI/FeatureFiles", "Forgot password feature", "\tSimple calculator for adding two numbers", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "TestScript/GUI/FeatureFiles", "Forgot password feature", "\tA demo feature file which shows the facebook forgot password page", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -102,6 +102,43 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 11
  testRunner.And("I enter my username", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("User has forgotten password again", new string[] {
+                "mynewtag"}, SourceLine=13)]
+        public void UserHasForgottenPasswordAgain()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "mynewtag"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User has forgotten password again", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 14
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 15
+ testRunner.Given("I Navigate to the \"facebook\" homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 16
+ testRunner.And("I accept all recommended cookies", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 17
+ testRunner.When("I click the \"forgot password\" link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 18
+ testRunner.Then("I land on the \"Find your account page\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 19
+ testRunner.And("I enter my username poorly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -30,7 +30,8 @@ namespace Nhsbt.LD.AutomationTests.TestScript.GUI.FeatureFiles
         public void GivenIAcceptAllRecommendedCookies()
         {
             ObjectRepository.homePagePageFactory = new HomePagePageFactory(ObjectRepository.Driver);
-            ObjectRepository.homePagePageFactory.ClickAcceptAllCookiesButton();            
+            ObjectRepository.homePagePageFactory.ClickAcceptAllCookiesButton();
+            GenericHelper.TakeScreenShot();
         }
 
         [When(@"I click the ""(.*)"" link")]
@@ -51,5 +52,12 @@ namespace Nhsbt.LD.AutomationTests.TestScript.GUI.FeatureFiles
         {
             Console.WriteLine("Then I enter my username");
         }
+
+        [Then(@"I enter my username poorly")]
+        public void ThenIEnterMyUsernamePoorly()
+        {
+            Assert.IsTrue(false);
+        }
+
     }
 }
