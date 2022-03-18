@@ -29,7 +29,7 @@ namespace Nhsbt.LD.AutomationTests.SetUp
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
-            //_extentHtmlReporter = new ExtentHtmlReporter("..\\..\\Resources\\Reports");
+            //_extentHtmlReporter = new ExtentHtmlReporter("..\\..\\Resources\\Reports\\");
             _extentHtmlReporter = new ExtentHtmlReporter(@"C:\Users\gord0019\Desktop\Reports\");
             _extentReports = new ExtentReports();
             _extentReports.AttachReporter(_extentHtmlReporter);
