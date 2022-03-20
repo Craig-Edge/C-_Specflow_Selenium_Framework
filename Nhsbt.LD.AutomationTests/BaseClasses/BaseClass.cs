@@ -62,6 +62,7 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
             }
         }     
       
+        [AssemblyCleanup]
         public static void TearDown()
         {
             if(ObjectRepository.Driver != null)

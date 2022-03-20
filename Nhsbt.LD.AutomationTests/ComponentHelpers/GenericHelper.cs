@@ -24,7 +24,8 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         {
             try
             {
-                return ObjectRepository.Driver.FindElements(locator).Count == 1;
+                //return ObjectRepository.Driver.FindElements(locator).Count == 1;
+                return ObjectRepository.Driver.FindElement(locator).Displayed;
             }
 
             catch (Exception)
