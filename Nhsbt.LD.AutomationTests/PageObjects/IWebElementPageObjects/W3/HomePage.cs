@@ -21,11 +21,11 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
         }
 
 
-        public void NavigateToHTMLFormsTutorialPracticePage()
+        public HtmlTutorial NavigateToHTMLFormsTutorialPracticePage()
         {
             InputManager.Click(ObjectRepository.w3CommonElements.GetTutorialMenuDropDown);
             InputManager.Click(ObjectRepository.w3CommonElements.GetLearnHtmlLink);
-            //return new HtmlTutorial();
+            return new HtmlTutorial(ObjectRepository.Driver);
         }
     }
 }

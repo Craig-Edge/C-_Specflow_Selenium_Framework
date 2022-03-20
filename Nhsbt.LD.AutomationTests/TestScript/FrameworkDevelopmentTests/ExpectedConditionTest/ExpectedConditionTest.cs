@@ -44,7 +44,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests.Expected
             PageManager.SwitchToDefaultContent();
 
             // New page object class refernce object
-            W3CommonElements w3 = new W3CommonElements();
+            W3CommonElements w3 = new W3CommonElements(ObjectRepository.Driver);
             // Click the run button
             w3.ClickRunButton();
 
@@ -59,7 +59,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests.Expected
             NavigationHelper.NavigateToUrl("https://www.w3schools.com/Tags/tryit.asp?filename=tryhtml_button_disabled");
             ObjectRepository.Driver.FindElement(By.Id("accept-choices")).Click();
             Console.WriteLine(GenericHelper.IsElementPresent(By.Id("getwebsitebtn")));
-            W3CommonElements w3 = new W3CommonElements();
+            W3CommonElements w3 = new W3CommonElements(ObjectRepository.Driver);
             w3.ClickRunButton();
             TearDown();
         }

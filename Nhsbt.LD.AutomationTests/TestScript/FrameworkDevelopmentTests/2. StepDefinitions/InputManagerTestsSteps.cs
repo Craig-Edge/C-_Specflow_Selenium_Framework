@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhsbt.LD.AutomationTests.PageObjects.Facebook.IWebElementPageObjects;
 using Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3;
 using Nhsbt.LD.AutomationTests.Settings;
 using System;
@@ -10,7 +11,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests._2._Step
     [Binding]
     public class InputManagerTestsSteps
     {
-        private readonly HomePage _homepage = new HomePage(ObjectRepository.Driver);
+        
 
         [Given(@"I have navigated to the W3 schools hompage")]
         public void GivenIHaveNavigatedToTheWSchoolsHompage()
@@ -20,15 +21,17 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests._2._Step
         
         [Given(@"I have navigated to the html forms practice page")]
         public void GivenIHaveNavigatedToTheHtmlFormsPracticePage()
-        {            
-            _homepage.NavigateToHTMLFormsTutorialPracticePage();
-            ObjectRepository.htmlTutorial.ClickHtmlFormsLink();
+        {
+            ObjectRepository.homePage  = new HomePage(ObjectRepository.Driver);           
+            ObjectRepository.htmlTutorial = ObjectRepository.homePage.NavigateToHTMLFormsTutorialPracticePage();
+            ObjectRepository.htmlFormsPracticePage = ObjectRepository.htmlTutorial.ClickHtmlFormsLink();
+            ObjectRepository.w3CommonElements = new W3CommonElements(ObjectRepository.Driver);
             ObjectRepository.w3CommonElements.clickTryItYourselfButton();
         }
         
         [When(@"I enter ""(.*)"" into the ""(.*)"" Field")]
         public void WhenIEnterIntoTheField(string name, string fieldName)
-        {
+        {            
             switch (fieldName)
             {
                 case "First Name":

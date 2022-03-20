@@ -20,7 +20,7 @@ namespace Nhsbt.LD.AutomationTests.Settings
 
         public static HtmlFormsPracticePage htmlFormsPracticePage;
         public static HtmlTutorial htmlTutorial;
-        public static HopePage homePage;
+        public static HomePage homePage;
         public static W3CommonElements w3CommonElements;
 
         public static PageManager pageManager;

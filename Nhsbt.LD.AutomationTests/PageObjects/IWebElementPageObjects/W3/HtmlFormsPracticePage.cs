@@ -1,4 +1,5 @@
-﻿using Nhsbt.LD.AutomationTests.ComponentHelpers;
+﻿using Nhsbt.LD.AutomationTests.BaseClasses;
+using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using Nhsbt.LD.AutomationTests.Settings;
 using OpenQA.Selenium;
 using System;
@@ -9,8 +10,15 @@ using System.Threading.Tasks;
 
 namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
 {
-    public class HtmlFormsPracticePage
+    public class HtmlFormsPracticePage : PageBaseClass
     {
+        private IWebDriver driver;
+
+        public HtmlFormsPracticePage(IWebDriver _driver) : base(_driver)
+        {
+            this.driver = _driver;
+        }
+
         private readonly string _resultFrameName = "iframeResult";
         private readonly IWebElement _firstNameField = ObjectRepository.Driver.FindElement(By.Id("fname"));
         private readonly IWebElement _lastNameField = ObjectRepository.Driver.FindElement(By.Id("lname"));

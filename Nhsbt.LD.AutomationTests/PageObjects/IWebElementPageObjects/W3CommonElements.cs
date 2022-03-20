@@ -11,8 +11,15 @@ using System.Threading.Tasks;
 
 namespace Nhsbt.LD.AutomationTests.PageObjects.Facebook.IWebElementPageObjects
 {
-    public class W3CommonElements
+    public class W3CommonElements : PageBaseClass
     {
+        private IWebDriver driver;
+
+        public W3CommonElements(IWebDriver _driver) : base(_driver)
+        {
+            this.driver = _driver;
+        }
+
         #region WebElements
 
         private readonly IWebElement _runButton = ObjectRepository.Driver.FindElement(By.Id("getwebsitebtn"));
