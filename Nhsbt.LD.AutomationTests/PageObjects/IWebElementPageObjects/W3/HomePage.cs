@@ -1,6 +1,6 @@
 ﻿using Nhsbt.LD.AutomationTests.BaseClasses;
 using Nhsbt.LD.AutomationTests.ComponentHelpers;
-using Nhsbt.LD.AutomationTests.PageObjects.Facebook.IWebElementPageObjects;
+
 using Nhsbt.LD.AutomationTests.Settings;
 using OpenQA.Selenium;
 using System;
@@ -20,11 +20,11 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
             this.driver = _driver;
         }
 
-
         public HtmlTutorial NavigateToHTMLFormsTutorialPracticePage()
         {
-            InputManager.Click(ObjectRepository.w3CommonElements.GetTutorialMenuDropDown);
-            InputManager.Click(ObjectRepository.w3CommonElements.GetLearnHtmlLink);
+            base.AcceptCookies();
+            InputManager.Click(ObjectRepository.Driver.FindElement(base._tutorialMenuDropDown));
+            InputManager.Click(base._learnHtmlLink);
             return new HtmlTutorial(driver);
         }
     }

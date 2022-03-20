@@ -19,18 +19,20 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
             this.driver = _driver;
         }
 
-        private readonly string _resultFrameName = "iframeResult";
-        private readonly IWebElement _firstNameField = ObjectRepository.Driver.FindElement(By.Id("fname"));
-        private readonly IWebElement _lastNameField = ObjectRepository.Driver.FindElement(By.Id("lname"));
-        private readonly IWebElement _submitButton = ObjectRepository.Driver.FindElement(By.XPath("//*[@value='Submit']"));
-        private readonly IWebElement _submittedFormDataHeading = ObjectRepository.Driver.FindElement(By.XPath("//*[text()='Submitted Form Data']"));
+        private readonly By _resultFrame = By.XPath("//iframe[@id='iframeResult']");
 
-        public IWebElement GetSubmittedFormDataHeading { get { return _submittedFormDataHeading; } }
+        private readonly By _firstNameField = By.Id("fname");
+        private readonly By _lastNameField = By.Id("lname");
+        private readonly By _submitButton = By.XPath("//*[@value='Submit']");
+        private readonly By _submittedFormDataHeading = By.XPath("//*[text()='Submitted Form Data']");
+        private readonly By _tryItYourselfButton = By.XPath("//*[text()='Try it Yourself »'][@class='w3-btn w3-margin-top w3-margin-bottom']");
+
+        public IWebElement GetSubmittedFormDataHeading { get { return ObjectRepository.Driver.FindElement(_submittedFormDataHeading); } }
 
         public void EnterFirstName(string firstName, int seconds = 10, int minutes = 0, int hours = 0)
         {
-            InputManager.EnterData(_firstNameField, firstName, seconds, minutes, hours);
-           
+            //ObjectRepository.Driver.SwitchTo().Frame(ObjectRepository.Driver.FindElement(_resultFrame));
+            InputManager.EnterData(_firstNameField, firstName, seconds, minutes, hours);           
         }
 
         public void EnterLastName(string lastName, int seconds = 10, int minutes = 0, int hours = 0)
@@ -44,5 +46,9 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
             InputManager.Click(_submitButton, seconds, minutes, hours);
         }
 
+        public void ClickTryItYourselfButton(int seconds = 10, int minutes = 0, int hours = 0)
+        {
+            InputManager.Click(_tryItYourselfButton, seconds, minutes, hours);
+        }
     }
 }

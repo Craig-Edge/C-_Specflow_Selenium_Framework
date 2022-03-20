@@ -2,8 +2,7 @@
 using Nhsbt.LD.AutomationTests.BaseClasses;
 using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using Nhsbt.LD.AutomationTests.PageObjects;
-using Nhsbt.LD.AutomationTests.PageObjects.Facebook;
-using Nhsbt.LD.AutomationTests.PageObjects.Facebook.IWebElementPageObjects;
+
 using Nhsbt.LD.AutomationTests.Settings;
 using OpenQA.Selenium;
 using System;
@@ -37,16 +36,16 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests.Expected
             Console.WriteLine(GenericHelper.IsElementPresent(By.XPath("//button[text()='Click Me!']")));
 
             // Clicks the element
-            InputManager.ClickUsingBy(By.XPath("//button[text()='Click Me!']"));
+            InputManager.Click(By.XPath("//button[text()='Click Me!']"));
 
             // Switches back to full scope of the DOM - This is important as if this step is not performed the WebDriver will only be able
             // To find elements within the scope of the current iframe
             PageManager.SwitchToDefaultContent();
 
             // New page object class refernce object
-            W3CommonElements w3 = new W3CommonElements(ObjectRepository.Driver);
+            //W3CommonElements w3 = new W3CommonElements(ObjectRepository.Driver);
             // Click the run button
-            w3.ClickRunButton();
+            //w3.ClickRunButton();
 
             // Ends browser session and stops all open WebDriver instances created in this session
             TearDown();
@@ -59,8 +58,8 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests.Expected
             NavigationHelper.NavigateToUrl("https://www.w3schools.com/Tags/tryit.asp?filename=tryhtml_button_disabled");
             ObjectRepository.Driver.FindElement(By.Id("accept-choices")).Click();
             Console.WriteLine(GenericHelper.IsElementPresent(By.Id("getwebsitebtn")));
-            W3CommonElements w3 = new W3CommonElements(ObjectRepository.Driver);
-            w3.ClickRunButton();
+            //W3CommonElements w3 = new W3CommonElements(ObjectRepository.Driver);
+            //w3.ClickRunButton();
             TearDown();
         }
     }

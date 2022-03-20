@@ -2,7 +2,7 @@
 using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using Nhsbt.LD.AutomationTests.FileReaders;
 using Nhsbt.LD.AutomationTests.PageObjects;
-using Nhsbt.LD.AutomationTests.PageObjects.Facebook;
+
 using Nhsbt.LD.AutomationTests.Settings;
 using System;
 using System.Collections.Generic;

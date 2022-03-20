@@ -12,6 +12,16 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 {
     public class PageManager
     {
+        public static IWebElement ScrollToElement(By locator, int seconds = 10, int minutes = 0, int hours = 0)
+        {
+            GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);        
+            Actions actions = new Actions(ObjectRepository.Driver);
+            IWebElement element = ObjectRepository.Driver.FindElement(locator);
+            actions.MoveToElement(element);
+            actions.Perform();
+            return element;
+        }
+
         public static void ScrollToElement(IWebElement element, int seconds = 10, int minutes = 0, int hours = 0)
         {
             GenericHelper.WaitforElementToBeDisplayed(element, seconds, minutes, hours);

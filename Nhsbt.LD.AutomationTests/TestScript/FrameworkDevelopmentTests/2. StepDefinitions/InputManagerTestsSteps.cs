@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nhsbt.LD.AutomationTests.PageObjects.Facebook.IWebElementPageObjects;
+
 using Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3;
 using Nhsbt.LD.AutomationTests.Settings;
 using System;
@@ -11,22 +11,32 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests._2._Step
     [Binding]
     public class InputManagerTestsSteps
     {
-        
+        //public InputManagerTestsSteps()
+        //{
+        //    ScenarioContext scenarioContext;
+        //}
 
         [Given(@"I have navigated to the W3 schools hompage")]
         public void GivenIHaveNavigatedToTheWSchoolsHompage()
         {
             ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetW3Schools());
         }
-        
+
+        //[Given(@"I have accepted all cookies")]
+        //public void GivenIHaveAcceptedAllCookies()
+        //{
+        //    ObjectRepository.homePage = new HomePage(ObjectRepository.Driver);
+        //    ObjectRepository.homePage.
+        //}
+
+
         [Given(@"I have navigated to the html forms practice page")]
         public void GivenIHaveNavigatedToTheHtmlFormsPracticePage()
         {
-            ObjectRepository.homePage  = new HomePage(ObjectRepository.Driver);           
+            ObjectRepository.homePage = new HomePage(ObjectRepository.Driver);
             ObjectRepository.htmlTutorial = ObjectRepository.homePage.NavigateToHTMLFormsTutorialPracticePage();
             ObjectRepository.htmlFormsPracticePage = ObjectRepository.htmlTutorial.ClickHtmlFormsLink();
-            ObjectRepository.w3CommonElements = new W3CommonElements(ObjectRepository.Driver);
-            ObjectRepository.w3CommonElements.clickTryItYourselfButton();
+            //ObjectRepository.htmlFormsPracticePage.ClickSubmitButton();
         }
         
         [When(@"I enter ""(.*)"" into the ""(.*)"" Field")]
@@ -43,7 +53,8 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests._2._Step
             }
             
         }
-        
+
+        [Given(@"I click the ""(.*)"" button")]
         [When(@"I click the ""(.*)"" button")]
         public void WhenIClickTheButton(string buttonName)
         {
@@ -51,6 +62,9 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests._2._Step
             {
                 case "Submit":
                     ObjectRepository.htmlFormsPracticePage.ClickSubmitButton();
+                    break;
+                case "Try it yourself":
+                    ObjectRepository.htmlFormsPracticePage.ClickTryItYourselfButton();
                     break;
             }
             

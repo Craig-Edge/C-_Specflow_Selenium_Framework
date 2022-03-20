@@ -16,12 +16,10 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
         /// <summary>
         /// Uses Webdriver explicit wait with a lambda function which waits for the element to be enabled before clicking for a maximum amount of time.
-        /// This helper method uses the By class rather than using the IWebElement and is intended for "on the fly" testing of element locators.  
-        /// Perminant solutions should use the ClickWebElement mehtod in conjuction with the relevant page object.
         /// </summary>
         /// <param name="locator"></param>
         /// <returns></returns>
-        public static void ClickUsingBy(By locator, int seconds = 10, int minutes = 0, int hours = 0)
+        public static void Click(By locator, int seconds = 10, int minutes = 0, int hours = 0)
         {
             bool isButtonEnabled;
             var wait = new WebDriverWait(ObjectRepository.Driver, new TimeSpan(hours, minutes, seconds));
@@ -81,6 +79,11 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             });
         }
 
+        public static void ScrollToElementAndClick(By locator, int seconds = 10, int minutes = 0, int hours = 0)
+        {
+            var element = PageManager.ScrollToElement(locator, seconds, minutes, hours);
+            Click(element, seconds, minutes, hours);
+        }
 
         public static void ScrollToElementAndClick(IWebElement element, int seconds = 10, int minutes = 0, int hours = 0)
         {
@@ -90,7 +93,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
         #endregion
 
-        #region Date Entry helper methods
+        #region Data Entry helper methods
 
         /// <summary>
         /// Waits for an element to be displayed and then used the SendKeys method to enter data.  Can be used with By or IWebelement
