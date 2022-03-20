@@ -493,7 +493,7 @@
     <Compile Include="FileReaders\JsonReaderFile.cs" />
     <Compile Include="Interfaces\IConfig.cs" />
     <Compile Include="PageObjects\IWebElementPageObjects\W3CommonElements.cs" />
-    <Compile Include="PageObjects\IWebElementPageObjects\W3\HopePage.cs" />
+    <Compile Include="PageObjects\IWebElementPageObjects\W3\HomePage.cs" />
     <Compile Include="PageObjects\IWebElementPageObjects\W3\HtmlFormsPracticePage.cs" />
     <Compile Include="PageObjects\IWebElementPageObjects\W3\HtmlTutorial.cs" />
     <Compile Include="Settings\AppConfigKeys.cs" />

@@ -1,13 +1,17 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3;
 using Nhsbt.LD.AutomationTests.Settings;
 using System;
 using TechTalk.SpecFlow;
 
 namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests._2._StepDefinitions
 {
+    
     [Binding]
     public class InputManagerTestsSteps
     {
+        private readonly HomePage _homepage = new HomePage(ObjectRepository.Driver);
+
         [Given(@"I have navigated to the W3 schools hompage")]
         public void GivenIHaveNavigatedToTheWSchoolsHompage()
         {
@@ -16,8 +20,8 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests._2._Step
         
         [Given(@"I have navigated to the html forms practice page")]
         public void GivenIHaveNavigatedToTheHtmlFormsPracticePage()
-        {
-            ObjectRepository.homePage.NavigateToHTMLFormsTutorialPracticePage();
+        {            
+            _homepage.NavigateToHTMLFormsTutorialPracticePage();
             ObjectRepository.htmlTutorial.ClickHtmlFormsLink();
             ObjectRepository.w3CommonElements.clickTryItYourselfButton();
         }

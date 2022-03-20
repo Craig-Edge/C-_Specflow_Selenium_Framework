@@ -11,13 +11,15 @@ using System.Threading.Tasks;
 
 namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
 {
-    public class HopePage : PageBaseClass
-    {   
-        public HopePage(driver) : base (driver)
+    public class HomePage : PageBaseClass
+    {
+        private IWebDriver driver;
+
+        public HomePage(IWebDriver _driver) : base(_driver)
         {
-            this ObjectRepository.Driver;
+            this.driver = _driver;
         }
-           
+
 
         public void NavigateToHTMLFormsTutorialPracticePage()
         {
