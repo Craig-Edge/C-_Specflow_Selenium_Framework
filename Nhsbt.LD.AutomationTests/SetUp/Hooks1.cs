@@ -90,59 +90,15 @@ namespace Nhsbt.LD.AutomationTests.SetUp
             switch (scenarioBlock)
             {
                 case ScenarioBlock.Given:
-                    //if (_scenarioContext.TestError != null)
-                    //{ 
-                    //    _scenario.CreateNode<Given>(_scenarioContext.StepContext.StepInfo.Text).Fail(
-                    //    _scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace + "\n");
-                    //}
-                    //else
-                    //{
-                    //    _scenario.CreateNode<Given>(_scenarioContext.StepContext.StepInfo.Text).Pass(""); ;
-                    //}
-
-
                     CreateNode<Given>();
                     break;
                 case ScenarioBlock.When:
-
-                    //if (_scenarioContext.TestError != null)
-                    //{
-                    //    _scenario.CreateNode<When>(_scenarioContext.StepContext.StepInfo.Text).Fail(
-                    //    _scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace + "\n");
-                    //}
-                    //else
-                    //{
-                    //    _scenario.CreateNode<When>(_scenarioContext.StepContext.StepInfo.Text).Pass("");
-                    //}
-
-
                     CreateNode<When>();
                     break;
                 case ScenarioBlock.Then:
-                    //if (_scenarioContext.TestError != null)
-                    //{
-                    //    _scenario.CreateNode<Then>(_scenarioContext.StepContext.StepInfo.Text).Fail(
-                    //    _scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace + "\n");
-                    //}
-                    //else
-                    //{
-                    //    _scenario.CreateNode<Then>(_scenarioContext.StepContext.StepInfo.Text).Pass(""); ;
-                    //}
-
-
                     CreateNode<Then>();
                     break;
                 default:
-                    //if (_scenarioContext.TestError != null)
-                    //{
-                    //    _scenario.CreateNode<And>(_scenarioContext.StepContext.StepInfo.Text).Fail(
-                    //    _scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace + "\n");
-                    //}
-                    //else
-                    //{
-                    //    _scenario.CreateNode<And>(_scenarioContext.StepContext.StepInfo.Text).Pass(""); ;
-                    //}
-
                     CreateNode<And>();
                     break;
             }            

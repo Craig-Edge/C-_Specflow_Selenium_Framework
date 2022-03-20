@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 {
-    public class ExperimentalClick
+    public class InputManager
     {
-
+        #region Click helper methods
 
         /// <summary>
         /// Uses Webdriver explicit wait with a lambda function which waits for the element to be enabled before clicking for a maximum amount of time.
@@ -20,32 +21,32 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// </summary>
         /// <param name="locator"></param>
         /// <returns></returns>
-        public static void ClickByElementConstraint(By locator, int hours = 0, int minutes = 0, int seconds = 10)
+        public static void ClickUsingBy(By locator, int seconds = 10, int minutes = 0, int hours = 0)
         {
             bool isButtonEnabled;
             var wait = new WebDriverWait(ObjectRepository.Driver, new TimeSpan(hours, minutes, seconds));
             var element = wait.Until(condition =>
-            {                
+            {
                 try
-                {                    
-                    var elementToBeDisplayed = ObjectRepository.Driver.FindElement(locator);                   
+                {
+                    var elementToBeDisplayed = ObjectRepository.Driver.FindElement(locator);
                     isButtonEnabled = elementToBeDisplayed.Enabled;
                     if (isButtonEnabled) { elementToBeDisplayed.Click(); }
                     return isButtonEnabled;
                 }
-                catch (StaleElementReferenceException)
+                catch (StaleElementReferenceException exception)
                 {
                     // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
                     // and therefore the fail the test prematurely.
-                    return false;
+                    throw exception;
                 }
                 catch (NoSuchElementException)
                 {
                     // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
                     // and therefore the fail the test prematurely.
                     return false;
-                }                
-            });      
+                }
+            });
         }
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
-        public static void ClickWebElement(IWebElement element, int hours = 0, int minutes = 0, int seconds = 10)
+        public static void Click(IWebElement element, int seconds = 10, int minutes = 0, int hours = 0)
         {
             bool isEnabled;
             var wait = new WebDriverWait(ObjectRepository.Driver, new TimeSpan(hours, minutes, seconds));
@@ -63,7 +64,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
                 {
                     isEnabled = element.Enabled;
                     if (isEnabled) { element.Click(); }
-                    return isEnabled;                                  
+                    return isEnabled;
                 }
                 catch (StaleElementReferenceException)
                 {
@@ -77,23 +78,38 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
                     // and therefore the fail the test prematurely.
                     return false;
                 }
-            });    
+            });
         }
+
+
+        public static void ScrollToElementAndClick(IWebElement element, int seconds = 10, int minutes = 0, int hours = 0)
+        {
+            PageManager.ScrollToElement(element, seconds, minutes, hours);
+            Click(element, seconds, minutes, hours);
+        }
+
+        #endregion
+
+        #region Date Entry helper methods
 
         /// <summary>
-        /// Helper method for switching into a frame or iframe
+        /// Waits for an element to be displayed and then used the SendKeys method to enter data.  Can be used with By or IWebelement
         /// </summary>
-        /// <param name="frame"></param>
-        public static void SwitchToFrame(By frame)
+        /// <param name="locator"></param>
+        public static void EnterData(By locator, string data, int seconds = 10, int minutes = 0, int hours = 0)
         {
-            ObjectRepository.Driver.SwitchTo().Frame(ObjectRepository.Driver.FindElement(frame));
+            // TODO - framework testing - needs to be tested
+            GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);
+            GenericHelper.GetElement(locator).SendKeys(data);
         }
 
-        public static void SwitchToDefaultContent()
+        public static void EnterData(IWebElement element, string data, int seconds = 10, int minutes = 0, int hours = 0)
         {
-            ObjectRepository.Driver.SwitchTo().DefaultContent();
+            // TODO - framework testing - needs to be tested
+            GenericHelper.WaitforElementToBeDisplayed(element, seconds, minutes, hours);
+            element.SendKeys("I am sending keys");
         }
 
-
+        #endregion
     }
 }

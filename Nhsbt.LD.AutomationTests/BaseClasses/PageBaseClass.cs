@@ -1,6 +1,6 @@
 ﻿using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +21,7 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
         }
 
         #region Common Page Elements
-
-        [FindsBy(How = How.XPath, Using = "//span[text()='Log in'")] IWebElement headerLogInButton;
-
+      
         #endregion
 
         #region Interactions
@@ -31,18 +29,7 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
         #endregion
 
         #region Navigation
-        protected void ClickLoginButtonInHeader()
-        {
-            if (GenericHelper.IsElementPresent(By.XPath("//span[text()='Log In']")))
-            {
-                headerLogInButton.Click();
-            }
-
-            else
-            {
-                Console.WriteLine(GenericHelper.IsElementPresent(By.XPath("//span[text()='Log In']")));
-            }
-        }
+   
         #endregion
     }
 }

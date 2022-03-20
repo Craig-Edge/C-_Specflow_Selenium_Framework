@@ -17,9 +17,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript.HyperLink
         public void ClickLink()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
-            ObjectRepository.Driver.FindElement(By.XPath("//button[@title='Allow Essential and Optional Cookies']")).Click();
-            //IWebElement element = ObjectRepository.Driver.FindElement(By.LinkText("Forgotten password?"));
-            //element.Click();
+            ObjectRepository.Driver.FindElement(By.XPath("//button[@title='Allow Essential and Optional Cookies']")).Click(); 
             LinkHelper.ClickLink(By.LinkText("Forgotten password?"));
         }
     }

@@ -27,6 +27,11 @@ namespace Nhsbt.LD.AutomationTests.Configuration
             return ConfigurationManager.AppSettings.Get(AppConfigKeys.Username);
         }
 
+        public string GetW3Schools()
+        {
+            return ConfigurationManager.AppSettings.Get(AppConfigKeys.W3Schools);
+        }
+
         public string GetWebsite()
         {
             return ConfigurationManager.AppSettings.Get(AppConfigKeys.Website);
