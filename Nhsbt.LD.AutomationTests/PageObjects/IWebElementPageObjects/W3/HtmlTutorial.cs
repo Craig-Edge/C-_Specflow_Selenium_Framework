@@ -26,7 +26,7 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
         public HtmlFormsPracticePage ClickHtmlFormsLink( int seconds = 10, int minutes = 0, int hours = 0)
         {
             InputManager.ScrollToElementAndClick(_htmlFormsLink, seconds, minutes, hours);
-            return new HtmlFormsPracticePage(ObjectRepository.Driver);
+            return new HtmlFormsPracticePage(driver);
         }
 
         

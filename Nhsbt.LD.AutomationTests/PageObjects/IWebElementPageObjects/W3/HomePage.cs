@@ -25,7 +25,7 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
         {
             InputManager.Click(ObjectRepository.w3CommonElements.GetTutorialMenuDropDown);
             InputManager.Click(ObjectRepository.w3CommonElements.GetLearnHtmlLink);
-            return new HtmlTutorial(ObjectRepository.Driver);
+            return new HtmlTutorial(driver);
         }
     }
 }
