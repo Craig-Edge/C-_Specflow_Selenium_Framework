@@ -137,18 +137,11 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         #endregion
 
 
-        public static void TakeScreenShot(string filename = "Screen")
-        {
-            Screenshot screen = ObjectRepository.Driver.TakeScreenshot();
-            if(filename.Equals("Screen"))
-            {
-                filename = filename + DateTime.UtcNow.ToString("dd-MM-yyyy-mm-ss") + ".jpeg";
-                screen.SaveAsFile(filename, ScreenshotImageFormat.Jpeg);                
-            }
-            else
-            {
-                screen.SaveAsFile(filename, ScreenshotImageFormat.Jpeg);
-            }
+        public static void TakeScreenShot(string filename = "Screen", string filePath = "..//..//Nhsbt.LD.AutomationTests//Nhsbt.LD.AutomationTests//Resources//Screenshots//")
+        {            
+            Screenshot screen = ObjectRepository.Driver.TakeScreenshot();           
+            filename = filePath + filename + DateTime.Now.ToString(" dd-MM-yyyy -- hh-mm-ss") + ".jpeg";
+            screen.SaveAsFile(filename, ScreenshotImageFormat.Jpeg);         
         }
     }
 }

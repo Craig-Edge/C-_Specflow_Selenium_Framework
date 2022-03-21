@@ -14,7 +14,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
     public class PageManager
     {
 
-        private static ILog Logger = Log4NetHelper.GetLogger(typeof(InputManager));
+        private static ILog Logger = Log4NetHelper.GetLogger(typeof(PageManager));
 
         public static string GetTitle()
         {
@@ -54,6 +54,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
                 Actions actions = new Actions(ObjectRepository.Driver);
                 actions.MoveToElement(element);
                 actions.Perform();
+                Logger.Debug("This is a scroll debug");
             }
             catch (Exception exception)
             {
@@ -109,6 +110,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         public static void SwitchToFrame(By frame)
         {
             ObjectRepository.Driver.SwitchTo().Frame(ObjectRepository.Driver.FindElement(frame));
+            Logger.Debug("Switched to iframe  : " + frame);
         }
 
         /// <summary>

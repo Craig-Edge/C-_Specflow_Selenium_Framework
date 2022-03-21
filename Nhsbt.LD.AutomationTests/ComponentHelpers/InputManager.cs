@@ -46,8 +46,8 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
                 {
                     // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
                     // and therefore the fail the test prematurely.
-                    Logger.Info("No such element found using - " + locator + " - locator" + "\n" +
-                                "Stack Trace : " + exception);
+                    //Logger.Info("No such element found using - " + locator + " - locator" + "\n" +
+                                //"Stack Trace : " + exception);
                     return false;
                 }
             });
@@ -80,16 +80,15 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
                 {
                     // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
                     // and therefore the fail the test prematurely.
-                    Logger.Info("No such element found using - " + element + " - element" + "\n" +
-                               "Stack Trace : " + exception);
+                    //Logger.Info("No such element found using - " + element + " - element" + "\n" +
+                    //           "Stack Trace : " + exception);
                     return false;
                 }
             });
         }
 
         public static void ScrollToElementAndClick(By locator, int seconds = 10, int minutes = 0, int hours = 0)
-        {
-            
+        {            
             var element = PageManager.ScrollToElement(locator, seconds, minutes, hours);
             Click(element, seconds, minutes, hours);
         }
@@ -105,20 +104,36 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         #region Data Entry helper methods
 
         /// <summary>
-        /// Waits for an element to be displayed and then used the SendKeys method to enter data.  Can be used with By or IWebelement
+        /// Waits for an element to be displayed, clears any exisiting data and then used the SendKeys method to enter data.  Can be used with By or IWebelement
         /// </summary>
         /// <param name="locator"></param>
+        /// <param name="data"></param>
+        /// <param name="seconds"></param>
+        /// <param name="minutes"></param>
+        /// <param name="hours"></param>
         public static void EnterData(By locator, string data, int seconds = 10, int minutes = 0, int hours = 0)
         {
             // TODO - framework testing - needs to be tested
             GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);
-            GenericHelper.GetElement(locator).SendKeys(data);
+            var element = GenericHelper.GetElement(locator);
+            element.Clear();
+            element.SendKeys(data);
+            Logger.Debug("Entered : " + data);
         }
 
+        /// <summary>
+        /// Waits for an element to be displayed, clears any exisiting data and then used the SendKeys method to enter data.  Can be used with By or IWebelement
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="data"></param>
+        /// <param name="seconds"></param>
+        /// <param name="minutes"></param>
+        /// <param name="hours"></param>
         public static void EnterData(IWebElement element, string data, int seconds = 10, int minutes = 0, int hours = 0)
         {
             // TODO - framework testing - needs to be tested
             GenericHelper.WaitforElementToBeDisplayed(element, seconds, minutes, hours);
+            element.Clear();
             element.SendKeys("I am sending keys");
         }
 

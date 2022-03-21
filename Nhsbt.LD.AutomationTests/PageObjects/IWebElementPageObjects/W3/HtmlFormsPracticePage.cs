@@ -28,14 +28,14 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
         private readonly By _firstNameField = By.Id("fname");
         private readonly By _lastNameField = By.Id("lname");
         private readonly By _submitButton = By.XPath("//*[@value='Submit']");
-        private readonly By _submittedFormDataHeading = By.XPath("//*[text()='Submitted Form Data']");
+        private readonly By _submittedFormDataHeading = By.XPath("//h1[text()='Submitted Form Data']");
         private readonly By _tryItYourselfButton = By.XPath("//*[text()='Try it Yourself »'][@class='w3-btn w3-margin-top w3-margin-bottom']");
 
         #endregion
 
         #region element Getters
 
-        public IWebElement GetSubmittedFormDataHeading { get { return ObjectRepository.Driver.FindElement(_submittedFormDataHeading); } }
+        public By GetSubmittedFormDataHeading { get { return _submittedFormDataHeading; } }
 
         #endregion
 
@@ -50,7 +50,6 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
         public void EnterLastName(string lastName, int seconds = 10, int minutes = 0, int hours = 0)
         {
             InputManager.EnterData(_lastNameField, lastName, seconds, minutes, hours);
-            InputManager.Click(_submitButton, seconds, minutes, hours);
         }
 
         public void ClickSubmitButton(int seconds = 10, int minutes = 0, int hours = 0)

@@ -74,7 +74,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             {
                 Name = "RollingFileAppender",
                 AppendToFile = true,
-                File = "RollingFile.Log",
+                File = "..//..//Resources//Reports//RollingFile.Log",
                 Layout = GetPatternLayout(),
                 Threshold = Level.All,
                 MaximumFileSize = "1MB",
