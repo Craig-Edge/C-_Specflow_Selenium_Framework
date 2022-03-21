@@ -487,6 +487,7 @@
     <Compile Include="BaseClasses\PageBaseClass.cs" />
     <Compile Include="ComponentHelpers\GenericHelper.cs" />
     <Compile Include="ComponentHelpers\InputManager.cs" />
+    <Compile Include="ComponentHelpers\Log4NetHelper.cs" />
     <Compile Include="ComponentHelpers\PageManager.cs" />
     <Compile Include="Configuration\AppConfigReader.cs" />
     <Compile Include="Configuration\BrowserType.cs" />

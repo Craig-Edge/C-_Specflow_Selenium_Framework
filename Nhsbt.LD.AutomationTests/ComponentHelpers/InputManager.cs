@@ -1,4 +1,5 @@
-﻿using Nhsbt.LD.AutomationTests.Settings;
+﻿using log4net;
+using Nhsbt.LD.AutomationTests.Settings;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -12,6 +13,8 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 {
     public class InputManager
     {
+        private static ILog Logger = Log4NetHelper.GetLogger(typeof(InputManager));
+
         #region Click helper methods
 
         /// <summary>
@@ -36,12 +39,15 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
                 {
                     // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
                     // and therefore the fail the test prematurely.
+                    
                     throw exception;
                 }
-                catch (NoSuchElementException)
+                catch (NoSuchElementException exception)
                 {
                     // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
                     // and therefore the fail the test prematurely.
+                    Logger.Info("No such element found using - " + locator + " - locator" + "\n" +
+                                "Stack Trace : " + exception);
                     return false;
                 }
             });
@@ -64,16 +70,18 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
                     if (isEnabled) { element.Click(); }
                     return isEnabled;
                 }
-                catch (StaleElementReferenceException)
+                catch (StaleElementReferenceException exception)
                 {
                     // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
                     // and therefore the fail the test prematurely.
                     return false;
                 }
-                catch (NoSuchElementException)
+                catch (NoSuchElementException exception)
                 {
                     // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
                     // and therefore the fail the test prematurely.
+                    Logger.Info("No such element found using - " + element + " - element" + "\n" +
+                               "Stack Trace : " + exception);
                     return false;
                 }
             });
@@ -81,6 +89,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
         public static void ScrollToElementAndClick(By locator, int seconds = 10, int minutes = 0, int hours = 0)
         {
+            
             var element = PageManager.ScrollToElement(locator, seconds, minutes, hours);
             Click(element, seconds, minutes, hours);
         }

@@ -1,4 +1,5 @@
-﻿using Nhsbt.LD.AutomationTests.Settings;
+﻿using log4net;
+using Nhsbt.LD.AutomationTests.Settings;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
@@ -13,6 +14,8 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
     public class GenericHelper
     {
+        private static ILog Logger = Log4NetHelper.GetLogger(typeof(GenericHelper));
+
         public static IWebElement GetElement(By locator)
         {
             if (IsElementPresent(locator))

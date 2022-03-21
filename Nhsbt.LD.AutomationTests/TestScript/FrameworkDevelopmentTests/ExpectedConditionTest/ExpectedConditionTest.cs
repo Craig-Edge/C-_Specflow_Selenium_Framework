@@ -24,7 +24,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests.Expected
             InitWebDriver();
 
             // Navigate to the URL
-            NavigationHelper.NavigateToUrl("https://www.w3schools.com/Tags/tryit.asp?filename=tryhtml_button_disabled");
+            PageManager.NavigateToUrl("https://www.w3schools.com/Tags/tryit.asp?filename=tryhtml_button_disabled");
 
             // Accepts cookies
             ObjectRepository.Driver.FindElement(By.Id("accept-choices")).Click();
@@ -55,7 +55,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests.Expected
         public void TestButton()
         {
             InitWebDriver();
-            NavigationHelper.NavigateToUrl("https://www.w3schools.com/Tags/tryit.asp?filename=tryhtml_button_disabled");
+            PageManager.NavigateToUrl("https://www.w3schools.com/Tags/tryit.asp?filename=tryhtml_button_disabled");
             ObjectRepository.Driver.FindElement(By.Id("accept-choices")).Click();
             Console.WriteLine(GenericHelper.IsElementPresent(By.Id("getwebsitebtn")));
             //W3CommonElements w3 = new W3CommonElements(ObjectRepository.Driver);

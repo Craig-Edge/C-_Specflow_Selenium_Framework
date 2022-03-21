@@ -16,8 +16,8 @@ namespace Nhsbt.LD.AutomationTests.TestScript.PageNavigation
         [TestMethod]
         public void OpenPage()
         {
-            NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
-            Console.WriteLine("Title of Page : {0}", WindowHelper.GetTitle());
+            PageManager.NavigateToUrl(ObjectRepository.Config.GetWebsite());
+            Console.WriteLine("Title of Page : {0}", PageManager.GetTitle());
         }
     }
 }

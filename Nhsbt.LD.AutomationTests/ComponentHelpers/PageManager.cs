@@ -1,4 +1,5 @@
-﻿using Nhsbt.LD.AutomationTests.Settings;
+﻿using log4net;
+using Nhsbt.LD.AutomationTests.Settings;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
@@ -13,6 +14,8 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
     public class PageManager
     {
 
+        private static ILog Logger = Log4NetHelper.GetLogger(typeof(InputManager));
+
         public static string GetTitle()
         {
             return ObjectRepository.Driver.Title;
@@ -25,20 +28,39 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
         public static IWebElement ScrollToElement(By locator, int seconds = 10, int minutes = 0, int hours = 0)
         {
-            GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);        
-            Actions actions = new Actions(ObjectRepository.Driver);
-            IWebElement element = ObjectRepository.Driver.FindElement(locator);
-            actions.MoveToElement(element);
-            actions.Perform();
-            return element;
+            try
+            {
+                // TODO - put all of these actions into a try catch with debug logging in the catch
+                GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);
+                Actions actions = new Actions(ObjectRepository.Driver);
+                IWebElement element = ObjectRepository.Driver.FindElement(locator);
+                actions.MoveToElement(element);
+                actions.Perform();
+                return element;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+
+       
         }
 
         public static void ScrollToElement(IWebElement element, int seconds = 10, int minutes = 0, int hours = 0)
         {
-            GenericHelper.WaitforElementToBeDisplayed(element, seconds, minutes, hours);
-            Actions actions = new Actions(ObjectRepository.Driver);
-            actions.MoveToElement(element);
-            actions.Perform();
+            try
+            {
+                GenericHelper.WaitforElementToBeDisplayed(element, seconds, minutes, hours);
+                Actions actions = new Actions(ObjectRepository.Driver);
+                actions.MoveToElement(element);
+                actions.Perform();
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+
+     
         }
 
         #region Frame Switching helper methods
@@ -48,7 +70,15 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// </summary>
         public static void SwitchToDefaultContent()
         {
-            ObjectRepository.Driver.SwitchTo().DefaultContent();
+            try
+            {
+                ObjectRepository.Driver.SwitchTo().DefaultContent();
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            
         }
 
         /// <summary>
@@ -57,8 +87,19 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <param name="frame"></param>
         public static void SwitchToFrame(IWebElement frame)
         {
-            // TODO - explicit wait - Add wait conditions to all Switch to frame helper methods
-            ObjectRepository.Driver.SwitchTo().Frame(frame);
+            try
+            {
+                ObjectRepository.Driver.SwitchTo().Frame(frame);
+
+            }
+            catch (Exception exception)
+            {
+                Logger.Error("Could not switch to frame : " + frame + "\n" +
+                             "Stack Trace : " + exception);
+                throw exception;
+            }
+            
+            
         }
 
         /// <summary>
