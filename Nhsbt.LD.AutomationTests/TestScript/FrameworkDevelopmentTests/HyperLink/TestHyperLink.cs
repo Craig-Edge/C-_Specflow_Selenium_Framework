@@ -18,7 +18,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript.HyperLink
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
             ObjectRepository.Driver.FindElement(By.XPath("//button[@title='Allow Essential and Optional Cookies']")).Click(); 
-            LinkHelper.ClickLink(By.LinkText("Forgotten password?"));
+            //LinkHelper.ClickLink(By.LinkText("Forgotten password?"));
         }
     }
 }

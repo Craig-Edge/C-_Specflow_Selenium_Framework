@@ -83,10 +83,9 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
         #endregion
 
-        public void SwitchToNewWindow()
+        public static void SwitchToNewWindow()
         {
             ObjectRepository.Driver.SwitchTo().NewWindow(WindowType.Tab);
         }
-     
     }
 }

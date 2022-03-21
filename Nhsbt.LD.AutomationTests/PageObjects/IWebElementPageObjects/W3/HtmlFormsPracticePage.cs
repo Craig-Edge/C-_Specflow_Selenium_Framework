@@ -19,6 +19,10 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
             this.driver = _driver;
         }
 
+        #region Elements
+
+       
+
         private readonly By _resultFrame = By.XPath("//iframe[@id='iframeResult']");
 
         private readonly By _firstNameField = By.Id("fname");
@@ -27,7 +31,15 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
         private readonly By _submittedFormDataHeading = By.XPath("//*[text()='Submitted Form Data']");
         private readonly By _tryItYourselfButton = By.XPath("//*[text()='Try it Yourself »'][@class='w3-btn w3-margin-top w3-margin-bottom']");
 
+        #endregion
+
+        #region element Getters
+
         public IWebElement GetSubmittedFormDataHeading { get { return ObjectRepository.Driver.FindElement(_submittedFormDataHeading); } }
+
+        #endregion
+
+        #region Interactions       
 
         public void EnterFirstName(string firstName, int seconds = 10, int minutes = 0, int hours = 0)
         {
@@ -50,5 +62,11 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
         {
             InputManager.Click(_tryItYourselfButton, seconds, minutes, hours);
         }
+
+        #endregion
+
+        #region Navigation
+
+        #endregion
     }
 }

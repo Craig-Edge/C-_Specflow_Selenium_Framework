@@ -22,6 +22,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         }
 
         #region IsElementPresent helper methods
+
         /// <summary>
         /// Checks if the element is displayed, can be used with By or WebElement
         /// </summary>
@@ -64,6 +65,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         #endregion
 
         #region WaitForElementToBeVisible helper methods
+
         /// <summary>
         /// Waits for an element to be present for a default of 10 seconds.  Can be used with By or IWebElement
         /// </summary>
@@ -106,12 +108,11 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <param name="hours"></param>
         public static void WaitforElementToBeDisplayed(IWebElement element, int seconds = 10, int minutes = 0, int hours = 0)
         {
-            bool isElementDisplayed;
             var wait = new WebDriverWait(ObjectRepository.Driver, new TimeSpan(hours, minutes, seconds));
-            var elementToBeDisplayed = wait.Until(condition =>
+            bool isElementDisplayed = wait.Until(condition =>
             {
                 try
-                {  
+                {
                     isElementDisplayed = element.Displayed;                   
                     return isElementDisplayed;
                 }

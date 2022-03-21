@@ -20,6 +20,16 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
             this.driver = _driver;
         }
 
+        #region Elements
+
+        #endregion
+
+        #region Interactions
+
+        #endregion
+
+        #region Navigation
+
         public HtmlTutorial NavigateToHTMLFormsTutorialPracticePage()
         {
             base.AcceptCookies();
@@ -27,6 +37,8 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
             InputManager.Click(base._learnHtmlLink);
             return new HtmlTutorial(driver);
         }
+
+        #endregion  
     }
 }
 
