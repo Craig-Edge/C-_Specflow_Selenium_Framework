@@ -12,6 +12,17 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 {
     public class PageManager
     {
+
+        public static string GetTitle()
+        {
+            return ObjectRepository.Driver.Title;
+        }
+
+        public static void NavigateToUrl(string url)
+        {
+            ObjectRepository.Driver.Navigate().GoToUrl(url);
+        }
+
         public static IWebElement ScrollToElement(By locator, int seconds = 10, int minutes = 0, int hours = 0)
         {
             GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);        

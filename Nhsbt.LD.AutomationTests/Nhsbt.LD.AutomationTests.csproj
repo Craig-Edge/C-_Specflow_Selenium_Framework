@@ -487,9 +487,7 @@
     <Compile Include="BaseClasses\PageBaseClass.cs" />
     <Compile Include="ComponentHelpers\GenericHelper.cs" />
     <Compile Include="ComponentHelpers\InputManager.cs" />
-    <Compile Include="ComponentHelpers\NavigationHelper.cs" />
     <Compile Include="ComponentHelpers\PageManager.cs" />
-    <Compile Include="ComponentHelpers\WindowHelper.cs" />
     <Compile Include="Configuration\AppConfigReader.cs" />
     <Compile Include="Configuration\BrowserType.cs" />
     <Compile Include="CustomException\NoSuitableDriverFound.cs" />
