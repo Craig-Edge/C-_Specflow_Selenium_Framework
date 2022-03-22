@@ -18,6 +18,8 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
         public static IWebElement GetElement(By locator)
         {
+            //code
+
             try
             {
                 IsElementPresent(locator);                
