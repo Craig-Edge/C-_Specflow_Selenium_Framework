@@ -32,7 +32,9 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
 
         public HtmlTutorial NavigateToHTMLFormsTutorialPracticePage()
         {
+            GenericHelper.WaitforElementToBeDisplayed(base._tutorialMenuDropDown, 30);
             base.AcceptCookies();
+            
             InputManager.Click(ObjectRepository.Driver.FindElement(base._tutorialMenuDropDown));
             InputManager.Click(base._learnHtmlLink);
             return new HtmlTutorial(driver);

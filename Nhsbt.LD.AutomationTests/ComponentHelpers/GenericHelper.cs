@@ -18,10 +18,17 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
         public static IWebElement GetElement(By locator)
         {
-            if (IsElementPresent(locator))
+            try
+            {
+                IsElementPresent(locator);                
                 return ObjectRepository.Driver.FindElement(locator);
-            else
-                throw new NoSuchElementException("Element Not Found : " + locator.ToString());
+            }
+        
+            catch(NoSuchElementException exception)
+            {
+                Logger.Error("Element Not Found : " + locator.ToString());
+                throw new NoSuchElementException("Stack Trace : " + exception);
+            }
         }
 
         #region IsElementPresent helper methods
@@ -35,14 +42,22 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         {
             try
             {
-                //return ObjectRepository.Driver.FindElements(locator).Count == 1;
-                return ObjectRepository.Driver.FindElement(locator).Displayed;
+                bool isElementDisplayed = ObjectRepository.Driver.FindElement(locator).Displayed;
+                Logger.Debug(locator + " element is present");
+                return isElementDisplayed;
+            }
+
+            catch (StaleElementReferenceException)
+            {
+                Logger.Error("Stale Element reference to : " + locator.ToString());
+                return false;
             }
 
             catch (Exception)
             {
+                Logger.Debug("Cannot find element using locator : " + locator.ToString() + " : element is not present");
                 return false;
-            }           
+            }
         }
 
 
@@ -53,14 +68,23 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <returns>bool</returns>
         public static bool IsElementPresent(IWebElement element)
         {
+            
+
             try
             {
-                //return ObjectRepository.Driver.FindElements(locator).Count == 1;
-                return element.Displayed;
+                bool isElementDisplayed = element.Displayed;
+                Logger.Debug(element.ToString() + " element is present");
+                return isElementDisplayed;
+            }
+            catch (StaleElementReferenceException)
+            {
+                Logger.Error("Stale Element reference to : " + element.ToString());                
+                return false;
             }
 
             catch (Exception)
             {
+                Logger.Debug("Cannot find element using locator : " + element.ToString() + " : element is not present");
                 return false;
             }
         }
@@ -82,23 +106,8 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             var wait = new WebDriverWait(ObjectRepository.Driver, new TimeSpan(hours, minutes, seconds));
             bool isElementDisplayed = wait.Until(condition =>
             {
-                try
-                {
-                    isElementDisplayed = IsElementPresent(locator);
-                    return isElementDisplayed;
-                }
-                catch (StaleElementReferenceException exception)
-                {
-                    // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
-                    // and therefore the fail the test prematurely.
-                    throw exception;
-                }
-                catch (NoSuchElementException)
-                {
-                    // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
-                    // and therefore the fail the test prematurely.
-                    return false;
-                }
+                    isElementDisplayed = IsElementPresent(locator);                    
+                    return isElementDisplayed;            
             });
         }
 
@@ -116,19 +125,17 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             {
                 try
                 {
-                    isElementDisplayed = element.Displayed;                   
+                    isElementDisplayed = IsElementPresent(element);                   
                     return isElementDisplayed;
                 }
-                catch (StaleElementReferenceException exception)
-                {
-                    // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
-                    // and therefore the fail the test prematurely.
-                    throw exception;
+                catch (StaleElementReferenceException)
+                {                  
+                    Logger.Error("Stale Element reference to : " + element.ToString());
+                    return false;
                 }
                 catch (NoSuchElementException)
                 {
-                    // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
-                    // and therefore the fail the test prematurely.
+                    Logger.Debug("Cannot find element using locator : " + element.ToString() + " : element is not present");
                     return false;
                 }
             });
@@ -137,11 +144,12 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         #endregion
 
 
-        public static void TakeScreenShot(string filename = "Screen", string filePath = "..//..//Nhsbt.LD.AutomationTests//Nhsbt.LD.AutomationTests//Resources//Screenshots//")
+        public static string TakeScreenShot(string filename = "Screen", string filePath = "..//..//Nhsbt.LD.AutomationTests//Nhsbt.LD.AutomationTests//Resources//Screenshots//")
         {            
             Screenshot screen = ObjectRepository.Driver.TakeScreenshot();           
             filename = filePath + filename + DateTime.Now.ToString(" dd-MM-yyyy -- hh-mm-ss") + ".jpeg";
-            screen.SaveAsFile(filename, ScreenshotImageFormat.Jpeg);         
+            screen.SaveAsFile(filename, ScreenshotImageFormat.Jpeg);
+            return filename;
         }
     }
 }

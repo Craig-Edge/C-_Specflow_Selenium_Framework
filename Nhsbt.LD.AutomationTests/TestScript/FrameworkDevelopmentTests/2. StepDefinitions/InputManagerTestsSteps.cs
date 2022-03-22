@@ -12,15 +12,18 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests._2._Step
     [Binding]
     public class InputManagerTestsSteps
     {
-        //public InputManagerTestsSteps()
-        //{
-        //    ScenarioContext scenarioContext;
-        //}
+        private static ScenarioContext _scenarioContext;
+
+        public InputManagerTestsSteps(ScenarioContext scenarioContext)
+        {
+            _scenarioContext = scenarioContext;
+        }
 
         [Given(@"I have navigated to the W3 schools hompage")]
         public void GivenIHaveNavigatedToTheWSchoolsHompage()
         {
-            ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetW3Schools());
+            //ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetW3Schools());
+            ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetWebsite());
         }
 
         //[Given(@"I have accepted all cookies")]

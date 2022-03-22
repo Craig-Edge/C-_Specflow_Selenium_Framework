@@ -23,27 +23,35 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
         public static void NavigateToUrl(string url)
         {
-            ObjectRepository.Driver.Navigate().GoToUrl(url);
+            try
+            {
+                ObjectRepository.Driver.Navigate().GoToUrl(url);
+                Logger.Info("Navigating to : " + url);
+            }
+             catch (Exception exception)
+            {
+                Logger.Error("There was an issue navigating to : " + url);
+                throw exception;
+            }
         }
 
         public static IWebElement ScrollToElement(By locator, int seconds = 10, int minutes = 0, int hours = 0)
         {
             try
             {
-                // TODO - put all of these actions into a try catch with debug logging in the catch
                 GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);
                 Actions actions = new Actions(ObjectRepository.Driver);
                 IWebElement element = ObjectRepository.Driver.FindElement(locator);
                 actions.MoveToElement(element);
                 actions.Perform();
+                Logger.Info("Scrolling to element : " + element.ToString());
                 return element;
             }
             catch (Exception exception)
             {
+                Logger.Error("There was an issue scrolling to the element : " + locator.ToString());
                 throw exception;
             }
-
-       
         }
 
         public static void ScrollToElement(IWebElement element, int seconds = 10, int minutes = 0, int hours = 0)
@@ -54,10 +62,11 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
                 Actions actions = new Actions(ObjectRepository.Driver);
                 actions.MoveToElement(element);
                 actions.Perform();
-                Logger.Debug("This is a scroll debug");
+                Logger.Info("Scrolling to element : " + element.ToString());
             }
             catch (Exception exception)
             {
+                Logger.Error("There was an issue scrolling to the element : " + element.ToString());
                 throw exception;
             }
 
@@ -74,9 +83,11 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             try
             {
                 ObjectRepository.Driver.SwitchTo().DefaultContent();
+                Logger.Debug("Switching to default content");
             }
             catch (Exception exception)
             {
+                Logger.Debug("Failed to switch to default content");
                 throw exception;
             }
             
@@ -91,16 +102,13 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             try
             {
                 ObjectRepository.Driver.SwitchTo().Frame(frame);
-
+                Logger.Debug("Switching to default content");
             }
             catch (Exception exception)
             {
-                Logger.Error("Could not switch to frame : " + frame + "\n" +
-                             "Stack Trace : " + exception);
+                Logger.Error("Could not switch to iframe : " + frame);
                 throw exception;
-            }
-            
-            
+            }            
         }
 
         /// <summary>
@@ -109,8 +117,16 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <param name="frame"></param>
         public static void SwitchToFrame(By frame)
         {
-            ObjectRepository.Driver.SwitchTo().Frame(ObjectRepository.Driver.FindElement(frame));
-            Logger.Debug("Switched to iframe  : " + frame);
+            try
+            {
+                ObjectRepository.Driver.SwitchTo().Frame(ObjectRepository.Driver.FindElement(frame));
+                Logger.Debug("Switched to iframe  : " + frame);
+            }
+            catch(Exception exception)
+            {
+                Logger.Error("Could not switch to iframe : " + frame.ToString());
+                throw exception;
+            }
         }
 
         /// <summary>
@@ -119,9 +135,18 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <param name="frame"></param>
         public static void SwitchFromFrameToFrame(IWebElement frame)
         {
-            // TODO - Framework testing - This needs to be tested
-            ObjectRepository.Driver.SwitchTo().DefaultContent();
-            ObjectRepository.Driver.SwitchTo().Frame(frame);
+            try
+            {
+                ObjectRepository.Driver.SwitchTo().DefaultContent();
+                ObjectRepository.Driver.SwitchTo().Frame(frame);
+            }
+
+            catch(Exception exception)
+            {
+                Logger.Error("Could not switch from current frame to : " + frame.ToString());
+                throw exception;
+            }
+          
         }
 
         /// <summary>
@@ -130,16 +155,34 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <param name="frame"></param>
         public static void SwitchFromFrameToFrame(By frame)
         {
-            // TODO - Framework testing - This needs to be tested
-            ObjectRepository.Driver.SwitchTo().DefaultContent();
-            ObjectRepository.Driver.SwitchTo().Frame(ObjectRepository.Driver.FindElement(frame));
+            //TODO - Refactoring - Can refine frame switching methods once we see the application, Logging is not as ood as it could be
+            try
+            {
+                // TODO - Framework testing - This needs to be tested
+                ObjectRepository.Driver.SwitchTo().DefaultContent();                
+                ObjectRepository.Driver.SwitchTo().Frame(ObjectRepository.Driver.FindElement(frame));
+            }
+            catch (Exception exception)
+            {
+                Logger.Error("Could not switch from current frame to : " + frame);
+                throw exception;
+            }
         }
 
         #endregion
 
         public static void SwitchToNewWindow()
         {
-            ObjectRepository.Driver.SwitchTo().NewWindow(WindowType.Tab);
+            try
+            {
+                ObjectRepository.Driver.SwitchTo().NewWindow(WindowType.Tab);
+                Logger.Info("Opening new Tab");
+            }
+
+            catch(Exception exception)
+            {
+                throw exception;
+            }
         }
     }
 }

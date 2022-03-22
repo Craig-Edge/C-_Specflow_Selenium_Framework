@@ -1,5 +1,7 @@
 ﻿
+using log4net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using Nhsbt.LD.AutomationTests.Configuration;
 using Nhsbt.LD.AutomationTests.CustomException;
 using Nhsbt.LD.AutomationTests.Settings;
@@ -19,7 +21,7 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
 {      
     public class BaseClass
     {
-
+        private static ILog Logger = Log4NetHelper.GetLogger(typeof(BaseClass));
         public static ChromeOptions ChromeOptions()
         {
             ChromeOptions option = new ChromeOptions();
@@ -67,6 +69,7 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
         {
             if(ObjectRepository.Driver != null)
             {
+                Logger.Debug("Tear Down initiated");
                 ObjectRepository.Driver.Close();
                 ObjectRepository.Driver.Quit();
             }

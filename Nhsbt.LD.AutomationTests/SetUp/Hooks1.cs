@@ -1,4 +1,5 @@
 ﻿
+using log4net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhsbt.LD.AutomationTests.BaseClasses;
 using Nhsbt.LD.AutomationTests.ComponentHelpers;
@@ -16,10 +17,14 @@ namespace Nhsbt.LD.AutomationTests.SetUp
 
 
         // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
-
+        private static ILog Logger = Log4NetHelper.GetLogger(typeof(Hooks1));
         private static ScenarioContext _scenarioContext;
         private static FeatureContext _featureContext;
-    
+
+        public Hooks1(ScenarioContext scenarioContext)
+        {
+            _scenarioContext = scenarioContext;
+        }
 
         [BeforeTestRun]
         public static void BeforeTestRun()
@@ -42,7 +47,7 @@ namespace Nhsbt.LD.AutomationTests.SetUp
             }
             else if(featureContext == null)
             {
-                Console.WriteLine("feature context is null");
+                Logger.Debug("feature context is null");
             }
         }
 
@@ -55,58 +60,30 @@ namespace Nhsbt.LD.AutomationTests.SetUp
 
         [BeforeScenario]
         public static void BeforeScenario(ScenarioContext scenarioContext)
-        {
-            if (scenarioContext != null)
-            {
-              
-            }
+        {           
             BaseClass.InitWebDriver();
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-            Console.WriteLine("Title : {0}", ScenarioContext.Current.ScenarioInfo.Title);
-            Console.WriteLine("Error : {0}", ScenarioContext.Current.TestError);
-            //string name = _scenarioContext.ScenarioInfo.Title.Replace(" ", "") + ".jpeg";
-            //GenericHelper.TakeScreenShot(name);           
+            // TODO - refactoring - the below is obsolete, replace with up to date implementation
+            Console.WriteLine("Title : {0}", _scenarioContext.ScenarioInfo.Title);
+            Console.WriteLine("Error : {0}", _scenarioContext.TestError);                    
         }
 
         [AfterStep]
         public void AfterStep()
-        {
-            //ScenarioBlock scenarioBlock = _scenarioContext.CurrentScenarioBlock;
-
-            //switch (scenarioBlock)
-            //{
-            //    case ScenarioBlock.Given:
-            //        CreateNode<Given>();
-            //        break;
-            //    case ScenarioBlock.When:
-            //        CreateNode<When>();
-            //        break;
-            //    case ScenarioBlock.Then:
-            //        CreateNode<Then>();
-            //        break;
-            //    default:
-            //        CreateNode<And>();
-            //        break;
-            //}            
-        }
-
-        public void CreateNode<T>()
-        {
-            //if (_scenarioContext.TestError != null)
-            //{
-            //    string name = @"C:\Users\gord0019\Desktop\Reports\" + _scenarioContext.ScenarioInfo.Title.Replace(" ", "") + ".jpeg";
-            //    GenericHelper.TakeScreenShot(name);
-            //    _scenario.CreateNode<T>(_scenarioContext.StepContext.StepInfo.Text).Fail(
-            //    _scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace + "\n").AddScreenCaptureFromPath(name);
-            //}
-            //else
-            //{
-            //    _scenario.CreateNode<T>(_scenarioContext.StepContext.StepInfo.Text).Pass(""); ;
-            //}
+        {             
+            if(_scenarioContext.TestError != null)
+            {
+                var file = $"{GenericHelper.TakeScreenShot()}";
+                var geturi = new Uri(file);
+                //var thisUri = geturi.AbsoluteUri;               
+                Logger.Debug("file name is : " + file);
+                Logger.Debug("file uri is : " + file);
+                //Logger.Error("Test step failed, please see screenshot for more details : " + thisUri);
+            }
         }
     }
 }

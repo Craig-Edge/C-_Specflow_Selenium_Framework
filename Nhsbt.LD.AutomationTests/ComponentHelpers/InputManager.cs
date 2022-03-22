@@ -24,32 +24,14 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <returns></returns>
         public static void Click(By locator, int seconds = 10, int minutes = 0, int hours = 0)
         {
-            bool isButtonEnabled;
+            
             var wait = new WebDriverWait(ObjectRepository.Driver, new TimeSpan(hours, minutes, seconds));
-            var element = wait.Until(condition =>
+            bool isClickableElementEnabled = wait.Until(condition =>
             {
-                try
-                {
-                    var elementToBeDisplayed = ObjectRepository.Driver.FindElement(locator);
-                    isButtonEnabled = elementToBeDisplayed.Enabled;
-                    if (isButtonEnabled) { elementToBeDisplayed.Click(); }
-                    return isButtonEnabled;
-                }
-                catch (StaleElementReferenceException exception)
-                {
-                    // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
-                    // and therefore the fail the test prematurely.
-                    
-                    throw exception;
-                }
-                catch (NoSuchElementException exception)
-                {
-                    // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
-                    // and therefore the fail the test prematurely.
-                    //Logger.Info("No such element found using - " + locator + " - locator" + "\n" +
-                                //"Stack Trace : " + exception);
-                    return false;
-                }
+                    var elementToBeEnabled = GenericHelper.GetElement(locator);
+                    isClickableElementEnabled = GenericHelper.IsElementPresent(elementToBeEnabled);
+                    if (isClickableElementEnabled) { elementToBeEnabled.Click(); }
+                    return isClickableElementEnabled;          
             });
         }
 
@@ -60,30 +42,12 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <returns></returns>
         public static void Click(IWebElement element, int seconds = 10, int minutes = 0, int hours = 0)
         {
-            bool isEnabled;
             var wait = new WebDriverWait(ObjectRepository.Driver, new TimeSpan(hours, minutes, seconds));
-            wait.Until(condition =>
-            {
-                try
-                {
-                    isEnabled = element.Enabled;
+            bool isEnabled = wait.Until(condition =>
+            {                
+                    isEnabled = GenericHelper.IsElementPresent(element);
                     if (isEnabled) { element.Click(); }
                     return isEnabled;
-                }
-                catch (StaleElementReferenceException exception)
-                {
-                    // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
-                    // and therefore the fail the test prematurely.
-                    return false;
-                }
-                catch (NoSuchElementException exception)
-                {
-                    // TODO - Best Practice - Find out if these catch statements should also throw an exception, I believe this could cause the lambda function to break 
-                    // and therefore the fail the test prematurely.
-                    //Logger.Info("No such element found using - " + element + " - element" + "\n" +
-                    //           "Stack Trace : " + exception);
-                    return false;
-                }
             });
         }
 
@@ -117,8 +81,9 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);
             var element = GenericHelper.GetElement(locator);
             element.Clear();
-            element.SendKeys(data);
-            Logger.Debug("Entered : " + data);
+            Logger.Info("Clearing element of data");
+            element.SendKeys(data);           
+            Logger.Debug("Entered data : " + data + " into : " + locator.ToString());
         }
 
         /// <summary>
@@ -134,7 +99,9 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             // TODO - framework testing - needs to be tested
             GenericHelper.WaitforElementToBeDisplayed(element, seconds, minutes, hours);
             element.Clear();
-            element.SendKeys("I am sending keys");
+            Logger.Info("Clearing element of data");
+            element.SendKeys(data);
+            Logger.Debug("Entered data : " + data + " into : " + element.ToString());
         }
 
         #endregion
