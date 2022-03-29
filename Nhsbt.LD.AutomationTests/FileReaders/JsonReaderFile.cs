@@ -33,8 +33,7 @@ namespace Nhsbt.LD.AutomationTests.FileReaders
         public class DonorDataModel
         {
             public string key { get; set; }
-            public string key2 { get; set; }
-           
+            public string key2 { get; set; }           
         }
 
     }

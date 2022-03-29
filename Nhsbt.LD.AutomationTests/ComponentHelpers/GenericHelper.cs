@@ -16,10 +16,14 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
     {
         private static ILog Logger = Log4NetHelper.GetLogger(typeof(GenericHelper));
 
+
+        /// <summary>
+        /// Takes a By locator and returns an IWebElement object
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <returns></returns>
         public static IWebElement GetElement(By locator)
         {
-            //code
-
             try
             {
                 IsElementPresent(locator);                
@@ -145,7 +149,13 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
         #endregion
 
-
+        /// <summary>
+        /// Code that takes a screenshot, takes 2 strings as arguments.  The first is the first part of the filename which has a default value of "Screen", the second is
+        /// is the filepath which by default has a relative filepath value to the screenshots folder within the Resources folder in the project
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public static string TakeScreenShot(string filename = "Screen", string filePath = "..//..//Nhsbt.LD.AutomationTests//Nhsbt.LD.AutomationTests//Resources//Screenshots//")
         {            
             Screenshot screen = ObjectRepository.Driver.TakeScreenshot();           
