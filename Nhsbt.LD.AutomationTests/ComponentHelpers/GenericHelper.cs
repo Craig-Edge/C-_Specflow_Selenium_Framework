@@ -67,6 +67,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         }
 
 
+
         /// <summary>
         /// Checks if the element is displayed, can be used with By or WebElement
         /// </summary>
@@ -74,8 +75,6 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <returns>bool</returns>
         public static bool IsElementPresent(IWebElement element)
         {
-            
-
             try
             {
                 bool isElementDisplayed = element.Displayed;
@@ -85,6 +84,59 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             catch (StaleElementReferenceException)
             {
                 Logger.Error("Stale Element reference to : " + element.ToString());                
+                return false;
+            }
+
+            catch (Exception)
+            {
+                Logger.Debug("Cannot find element using locator : " + element.ToString() + " : element is not present");
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Checks if the element is enabled, can be used with By or WebElement
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public static bool IsElementEnabled(By locator)
+        {
+            try
+            {
+                bool isElementDisplayed = ObjectRepository.Driver.FindElement(locator).Enabled;
+                Logger.Debug(locator + " element is enabled");
+                return isElementDisplayed;
+            }
+
+            catch (StaleElementReferenceException)
+            {
+                Logger.Error("Stale Element reference to : " + locator.ToString());
+                return false;
+            }
+
+            catch (Exception)
+            {
+                Logger.Debug("Cannot find element using locator : " + locator.ToString() + " : element is not present");
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Checks if the element is enabled, can be used with By or WebElement
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public static bool IsElementEnabled(IWebElement element)
+        {
+            try
+            {
+                bool isElementEnabled = element.Enabled;
+                Logger.Debug(element.ToString() + " element is enabled");
+                return isElementEnabled;
+            }
+            catch (StaleElementReferenceException)
+            {
+                Logger.Error("Stale Element reference to : " + element.ToString());
                 return false;
             }
 

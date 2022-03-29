@@ -45,12 +45,19 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             var wait = new WebDriverWait(ObjectRepository.Driver, new TimeSpan(hours, minutes, seconds));
             bool isEnabled = wait.Until(condition =>
             {                
-                    isEnabled = GenericHelper.IsElementPresent(element);
+                    isEnabled = GenericHelper.IsElementEnabled(element);
                     if (isEnabled) { element.Click(); }
                     return isEnabled;
             });
         }
 
+        /// <summary>
+        /// Waits for an element to be visible, scrolls to that element then waits for that element to be clickable and clicks
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <param name="seconds"></param>
+        /// <param name="minutes"></param>
+        /// <param name="hours"></param>
         public static void ScrollToElementAndClick(By locator, int seconds = 10, int minutes = 0, int hours = 0)
         {            
             var element = PageManager.ScrollToElement(locator, seconds, minutes, hours);
