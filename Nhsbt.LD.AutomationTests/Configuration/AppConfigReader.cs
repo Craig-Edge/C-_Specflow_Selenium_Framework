@@ -9,6 +9,13 @@ using System.Threading.Tasks;
 
 namespace Nhsbt.LD.AutomationTests.Configuration
 {
+
+    /// <summary>
+    /// This class is used to read the necessary data & settings reqiured for the framework's initialisation.  It uses the IConfig interfdace which ensures that any configuration 
+    /// methods set in the interface must be implemented here.
+    /// </summary>
+
+
     public class AppConfigReader : IConfig
     {
         public BrowserType GetBrowser()

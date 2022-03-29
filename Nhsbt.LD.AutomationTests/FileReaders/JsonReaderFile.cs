@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace Nhsbt.LD.AutomationTests.FileReaders
 {
+    /// <summary>
+    /// Contains the methods necessary to read from a JSON file
+    /// </summary>
+
     public class JsonReaderFile
     {
 

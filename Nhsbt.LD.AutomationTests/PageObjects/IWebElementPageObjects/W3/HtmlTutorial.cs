@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
 {
+    /// <summary>
+    /// Example Page Objects class, uses w3 schools
+    /// </summary>
     public class HtmlTutorial : PageBaseClass
     {
         private IWebDriver driver;
@@ -39,9 +42,5 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
         }
 
         #endregion
-
-
-
-
     }
 }

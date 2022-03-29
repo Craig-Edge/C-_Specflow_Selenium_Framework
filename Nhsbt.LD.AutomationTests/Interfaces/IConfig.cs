@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Nhsbt.LD.AutomationTests.Interfaces
 {
+
+    /// <summary>
+    /// This interface is for use where values must be read from the app.config file that are essential for framework initialisation
+    /// </summary>
     public interface IConfig
     {
         BrowserType GetBrowser();

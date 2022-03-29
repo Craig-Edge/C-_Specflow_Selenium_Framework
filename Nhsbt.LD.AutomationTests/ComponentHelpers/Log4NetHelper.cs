@@ -37,7 +37,6 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             var patternLayout = new PatternLayout()
             {
                 ConversionPattern = "%date{dd-MM-yyyy-HH:mm:ss} [%class] [%level] [%method] - %message%newline"
-            
             };
             patternLayout.ActivateOptions();
             return patternLayout;

@@ -35,6 +35,14 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             }
         }
 
+        /// <summary>
+        /// Waits for an element to be diplayed and then scrolls to it
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <param name="seconds"></param>
+        /// <param name="minutes"></param>
+        /// <param name="hours"></param>
+        /// <returns></returns>
         public static IWebElement ScrollToElement(By locator, int seconds = 10, int minutes = 0, int hours = 0)
         {
             try
@@ -54,6 +62,14 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             }
         }
 
+        /// <summary>
+        /// Waits for an element to be diplayed and then scrolls to it
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <param name="seconds"></param>
+        /// <param name="minutes"></param>
+        /// <param name="hours"></param>
+        /// <returns></returns>
         public static void ScrollToElement(IWebElement element, int seconds = 10, int minutes = 0, int hours = 0)
         {
             try
@@ -69,8 +85,6 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
                 Logger.Error("There was an issue scrolling to the element : " + element.ToString());
                 throw exception;
             }
-
-     
         }
 
         #region Frame Switching helper methods
@@ -89,8 +103,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             {
                 Logger.Debug("Failed to switch to default content");
                 throw exception;
-            }
-            
+            }            
         }
 
         /// <summary>
