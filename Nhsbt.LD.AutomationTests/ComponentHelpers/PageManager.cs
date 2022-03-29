@@ -78,11 +78,11 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
                 Actions actions = new Actions(ObjectRepository.Driver);
                 actions.MoveToElement(element);
                 actions.Perform();
-                Logger.Info("Scrolling to element : " + element.ToString());
+                Logger.Info("Scrolling to element");
             }
             catch (Exception exception)
             {
-                Logger.Error("There was an issue scrolling to the element : " + element.ToString());
+                Logger.Error("There was an issue scrolling to the element");
                 throw exception;
             }
         }
@@ -119,7 +119,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             }
             catch (Exception exception)
             {
-                Logger.Error("Could not switch to iframe : " + frame);
+                Logger.Error("Could not switch to iframe");
                 throw exception;
             }            
         }
@@ -156,7 +156,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
             catch(Exception exception)
             {
-                Logger.Error("Could not switch from current frame to : " + frame.ToString());
+                Logger.Error("Could not switch from current frame to specified frame");
                 throw exception;
             }
           

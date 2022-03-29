@@ -108,7 +108,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             element.Clear();
             Logger.Info("Clearing element of data");
             element.SendKeys(data);
-            Logger.Debug("Entered data : " + data + " into : " + element.ToString());
+            Logger.Debug("Entered data : " + data);
         }
 
         #endregion

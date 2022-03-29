@@ -19,7 +19,6 @@ namespace Nhsbt.LD.AutomationTests.Settings
 
         public static HtmlFormsPracticePage htmlFormsPracticePage;
         public static HtmlTutorial htmlTutorial;
-        public static HomePage homePage;   
-        public static PageManager pageManager;
+        public static HomePage homePage;          
     }
 }

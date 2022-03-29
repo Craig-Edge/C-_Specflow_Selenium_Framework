@@ -40,7 +40,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         #region IsElementPresent helper methods
 
         /// <summary>
-        /// Checks if the element is displayed, can be used with By or WebElement
+        /// Checks if the element is displayed, can be used with By or WebElement.  Using By variable produces more details debug logs
         /// </summary>
         /// <param name="locator"></param>
         /// <returns></returns>
@@ -66,10 +66,8 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             }
         }
 
-
-
         /// <summary>
-        /// Checks if the element is displayed, can be used with By or WebElement
+        /// Checks if the element is displayed, can be used with By or WebElement.  Using By variable produces more details debug logs
         /// </summary>
         /// <param name="locator"></param>
         /// <returns>bool</returns>
@@ -78,18 +76,18 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             try
             {
                 bool isElementDisplayed = element.Displayed;
-                Logger.Debug(element.ToString() + " element is present");
+                Logger.Debug("element is present");
                 return isElementDisplayed;
             }
             catch (StaleElementReferenceException)
             {
-                Logger.Error("Stale Element reference to : " + element.ToString());                
+                Logger.Error("Stale Element reference to element");                
                 return false;
             }
 
-            catch (Exception)
+            catch (NoSuchElementException)
             {
-                Logger.Debug("Cannot find element using locator : " + element.ToString() + " : element is not present");
+                Logger.Debug("Cannot find element");
                 return false;
             }
         }
@@ -131,18 +129,18 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             try
             {
                 bool isElementEnabled = element.Enabled;
-                Logger.Debug(element.ToString() + " element is enabled");
+                Logger.Debug("Element is enabled");
                 return isElementEnabled;
             }
             catch (StaleElementReferenceException)
             {
-                Logger.Error("Stale Element reference to : " + element.ToString());
+                Logger.Error("Stale Element reference");
                 return false;
             }
 
             catch (Exception)
             {
-                Logger.Debug("Cannot find element using locator : " + element.ToString() + " : element is not present");
+                Logger.Debug("Cannot find element");
                 return false;
             }
         }
@@ -188,12 +186,12 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
                 }
                 catch (StaleElementReferenceException)
                 {                  
-                    Logger.Error("Stale Element reference to : " + element.ToString());
+                    Logger.Error("Stale Element reference");
                     return false;
                 }
                 catch (NoSuchElementException)
                 {
-                    Logger.Debug("Cannot find element using locator : " + element.ToString() + " : element is not present");
+                    Logger.Debug("Cannot find element using locator");
                     return false;
                 }
             });

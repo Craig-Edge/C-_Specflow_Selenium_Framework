@@ -73,14 +73,14 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests._1_Featu
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Navigate to HTML form on W3 schools, enter data and click submit", new string[] {
-                "input_manager"}, SourceLine=6)]
+                "input_manager"}, SourceLine=4)]
         public void NavigateToHTMLFormOnW3SchoolsEnterDataAndClickSubmit()
         {
             string[] tagsOfScenario = new string[] {
                     "input_manager"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to HTML form on W3 schools, enter data and click submit", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 7
+#line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -90,25 +90,25 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 8
+#line 6
  testRunner.Given("I have navigated to the W3 schools hompage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 10
+#line 8
  testRunner.And("I have navigated to the html forms practice page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 11
+#line 9
  testRunner.And("I click the \"Try it yourself\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 12
+#line 10
  testRunner.When("I enter \"Craig\" into the \"First Name\" Field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 13
+#line 11
  testRunner.When("I enter \"Gordon\" into the \"Last Name\" Field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 14
+#line 12
  testRunner.And("I click the \"Submit\" button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 15
+#line 13
  testRunner.Then("The data will be successfully submitted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

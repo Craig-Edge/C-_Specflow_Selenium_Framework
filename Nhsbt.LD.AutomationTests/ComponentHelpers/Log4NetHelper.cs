@@ -92,16 +92,16 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             if (_consoleAppender == null)
                 _consoleAppender = GetConsoleAppender();
 
-            if (_fileAppender == null)
-                _fileAppender = GetFileAppender();
+            //if (_fileAppender == null)
+            //    _fileAppender = GetFileAppender();
 
-            if (_rollingFileAppender == null)
-                _rollingFileAppender = GetRollingFileAppender();
+            //if (_rollingFileAppender == null)
+            //    _rollingFileAppender = GetRollingFileAppender();
 
             if (_logger != null)
                 return _logger;
 
-            BasicConfigurator.Configure(_consoleAppender, _fileAppender, _rollingFileAppender);
+            BasicConfigurator.Configure(_consoleAppender/*, _fileAppender, _rollingFileAppender*/);
             _logger = LogManager.GetLogger(type);
             return _logger;
         }

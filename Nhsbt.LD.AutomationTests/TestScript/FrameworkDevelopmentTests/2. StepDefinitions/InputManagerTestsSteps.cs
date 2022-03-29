@@ -23,7 +23,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests._2._Step
         public void GivenIHaveNavigatedToTheWSchoolsHompage()
         {
             //ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetW3Schools());
-            ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetWebsite());
+            ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetW3Schools());
         }
 
         //[Given(@"I have accepted all cookies")]
