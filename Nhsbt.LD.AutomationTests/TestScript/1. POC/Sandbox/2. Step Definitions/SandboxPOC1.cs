@@ -15,6 +15,8 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
             _scenarioContext = scenarioContext;
         }
 
+
+
         [Given(@"I navigate to the dashoard of the Sandbox environment")]
         public void GivenINavigateToTheDashoardOfTheSandboxEnvironment()
         {
@@ -59,7 +61,16 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
         public void WhenIClickTheNavButton(string navButton)
         {
             ObjectRepository.customerDashboard.clickSpecificNavButton(navButton);
+            
         }
+
+        [When(@"I enter the data from a Json file")]
+        public void WhenIEnterTheDataFromAJsonFile()
+        {
+            ObjectRepository.partners = new Partners(ObjectRepository.Driver);
+            ObjectRepository.partners.enterDataIntoSeachFieldFromJson();
+        }
+
 
     }
 }

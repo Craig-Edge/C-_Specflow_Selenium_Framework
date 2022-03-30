@@ -1,4 +1,5 @@
 ﻿using Nhsbt.LD.AutomationTests.ComponentHelpers;
+using Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox;
 using Nhsbt.LD.AutomationTests.Settings;
 using OpenQA.Selenium;
 
@@ -12,13 +13,13 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
 {
     public class PageBaseClass
     {
-        private IWebDriver driver;
+        private IWebDriver _driver;
 
 
         // Change this to non-page factory implementation
-        public PageBaseClass(IWebDriver _driver)
+        public PageBaseClass(IWebDriver driver)
         {
-            driver = _driver;
+            _driver = driver;
         }
 
         #region W3
@@ -62,6 +63,15 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
 
         #endregion
 
+        #region Getters
+
+        public Partners GetPartnersObject()
+        {
+            return new Partners(_driver);
+        }
+
+        #endregion
+
         #region Interactions 
 
         public void clickSpecificNavButton(string navButton)
@@ -78,7 +88,7 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
                     InputManager.Click(_prodcutsAndServicesNavButton);
                     break;
                 case "partners":
-                    InputManager.Click(_partnersNavButton);
+                    InputManager.Click(_partnersNavButton);                 
                     break;
                 case "contacts":
                     InputManager.Click(_contactsNavButton);

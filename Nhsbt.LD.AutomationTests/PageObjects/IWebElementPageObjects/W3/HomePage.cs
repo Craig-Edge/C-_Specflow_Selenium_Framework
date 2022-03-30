@@ -16,11 +16,11 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
     /// </summary>
     public class HomePage : PageBaseClass
     {
-        private IWebDriver driver;
+        private IWebDriver _driver;
 
-        public HomePage(IWebDriver _driver) : base(_driver)
+        public HomePage(IWebDriver driver) : base(driver)
         {
-            this.driver = _driver;
+            this._driver = driver;
         }
 
         #region Elements
@@ -39,7 +39,7 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
             base.AcceptCookies();            
             InputManager.Click(ObjectRepository.Driver.FindElement(base._tutorialMenuDropDown));
             InputManager.Click(base._learnHtmlLink);
-            return new HtmlTutorial(driver);
+            return new HtmlTutorial(_driver);
         }
 
         #endregion  

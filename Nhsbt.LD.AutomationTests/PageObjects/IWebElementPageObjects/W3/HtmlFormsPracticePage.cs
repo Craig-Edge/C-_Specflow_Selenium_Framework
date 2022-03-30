@@ -16,11 +16,11 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
 
     public class HtmlFormsPracticePage : PageBaseClass
     {
-        private IWebDriver driver;
+        private IWebDriver _driver;
 
-        public HtmlFormsPracticePage(IWebDriver _driver) : base(_driver)
+        public HtmlFormsPracticePage(IWebDriver driver) : base(driver)
         {
-            this.driver = _driver;
+            this._driver = driver;
         }
 
         #region Elements       

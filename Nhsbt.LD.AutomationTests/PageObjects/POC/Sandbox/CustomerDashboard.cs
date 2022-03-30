@@ -13,11 +13,11 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox
 {
     public class CustomerDashboard : PageBaseClass
     {
-        private IWebDriver driver;
+        private IWebDriver _driver;
 
-        public CustomerDashboard(IWebDriver _driver) : base(_driver)
+        public CustomerDashboard(IWebDriver driver) : base(driver)
         {
-            this.driver = _driver;
+            this._driver = driver;
         }
 
         #region Elements

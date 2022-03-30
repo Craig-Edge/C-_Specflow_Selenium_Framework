@@ -130,6 +130,7 @@
     <Compile Include="PageObjects\IWebElementPageObjects\W3\HtmlFormsPracticePage.cs" />
     <Compile Include="PageObjects\IWebElementPageObjects\W3\HtmlTutorial.cs" />
     <Compile Include="PageObjects\POC\Sandbox\CustomerDashboard.cs" />
+    <Compile Include="PageObjects\POC\Sandbox\Partners.cs" />
     <Compile Include="Settings\AppConfigKeys.cs" />
     <Compile Include="Settings\ObjectRepository.cs" />
     <Compile Include="SetUp\Hooks1.cs" />

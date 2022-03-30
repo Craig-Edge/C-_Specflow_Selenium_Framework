@@ -16,11 +16,11 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
     /// </summary>
     public class HtmlTutorial : PageBaseClass
     {
-        private IWebDriver driver;
+        private IWebDriver _driver;
 
-        public HtmlTutorial(IWebDriver _driver) : base(_driver)
+        public HtmlTutorial(IWebDriver driver) : base(driver)
         {
-            this.driver = _driver;
+            this._driver = driver;
         }
 
         #region Elements
@@ -38,7 +38,7 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
         public HtmlFormsPracticePage ClickHtmlFormsLink(int seconds = 10, int minutes = 0, int hours = 0)
         {
             InputManager.ScrollToElementAndClick(_htmlFormsLink, seconds, minutes, hours);
-            return new HtmlFormsPracticePage(driver);
+            return new HtmlFormsPracticePage(_driver);
         }
 
         #endregion
