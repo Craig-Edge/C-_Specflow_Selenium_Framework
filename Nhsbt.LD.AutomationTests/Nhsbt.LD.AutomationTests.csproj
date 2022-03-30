@@ -133,15 +133,8 @@
     <Compile Include="PageObjects\POC\Sandbox\Partners.cs" />
     <Compile Include="Settings\AppConfigKeys.cs" />
     <Compile Include="Settings\ObjectRepository.cs" />
-    <Compile Include="SetUp\Hooks1.cs" />
+    <Compile Include="SetUp\Hooks.cs" />
     <Compile Include="TestScript\1. POC\Sandbox\2. Step Definitions\SandboxPOC1.cs" />
-    <Compile Include="TestScript\FrameworkDevelopmentTests\2. StepDefinitions\InputManagerTestsSteps.cs" />
-    <Compile Include="TestScript\FrameworkDevelopmentTests\ExpectedConditionTest\ExpectedConditionTest.cs" />
-    <Compile Include="TestScript\FrameworkDevelopmentTests\HyperLink\TestHyperLink.cs" />
-    <Compile Include="TestScript\FrameworkDevelopmentTests\JsonReader\TestJsonReader.cs" />
-    <Compile Include="TestScript\FrameworkDevelopmentTests\PageNavigation\TestPageNavigation.cs" />
-    <Compile Include="TestScript\FrameworkDevelopmentTests\TestClassContext\TestClassContext.cs" />
-    <Compile Include="TestScript\FrameworkDevelopmentTests\WebElement\TestWebElement.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -168,12 +161,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="TestScript\1. POC\Sandbox\1. FeatureFiles\SandboxPOC1.feature" />
-    <None Include="TestScript\FrameworkDevelopmentTests\1. FeatureFiles\InputManagerTests.feature" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Reports\" />
     <Folder Include="Resources\Screenshots\" />
-    <Folder Include="TestScript\GUI\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -12,16 +12,16 @@ using TechTalk.SpecFlow;
 namespace Nhsbt.LD.AutomationTests.SetUp
 {
     [Binding]
-    public sealed class Hooks1
+    public sealed class Hooks
     {
 
 
         // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
-        private static ILog Logger = Log4NetHelper.GetLogger(typeof(Hooks1));
+        private static ILog Logger = Log4NetHelper.GetLogger(typeof(Hooks));
         private static ScenarioContext _scenarioContext;
         private static FeatureContext _featureContext;
 
-        public Hooks1(ScenarioContext scenarioContext)
+        public Hooks(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
         }
