@@ -64,6 +64,13 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             Click(element, seconds, minutes, hours);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="seconds"></param>
+        /// <param name="minutes"></param>
+        /// <param name="hours"></param>
         public static void ScrollToElementAndClick(IWebElement element, int seconds = 10, int minutes = 0, int hours = 0)
         {
             PageManager.ScrollToElement(element, seconds, minutes, hours);

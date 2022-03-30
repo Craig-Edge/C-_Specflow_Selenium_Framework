@@ -31,6 +31,7 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
 
         #region Interactions
 
+        
         protected void AcceptCookies()
         {
             InputManager.Click(_acceptAllCookies);

@@ -13,5 +13,7 @@ namespace Nhsbt.LD.AutomationTests.Settings
         public const string Password = "Password";
         public const string Website = "Website";
         public const string W3Schools = "W3Schools";
+        public const string DeveloperSandbox = "DeveloperSandbox";
+        public const string TransportInformationManager = "TransportInformationManager";
     }
 }

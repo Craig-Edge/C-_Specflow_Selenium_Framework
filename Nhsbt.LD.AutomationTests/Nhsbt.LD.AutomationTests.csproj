@@ -129,9 +129,11 @@
     <Compile Include="PageObjects\IWebElementPageObjects\W3\HomePage.cs" />
     <Compile Include="PageObjects\IWebElementPageObjects\W3\HtmlFormsPracticePage.cs" />
     <Compile Include="PageObjects\IWebElementPageObjects\W3\HtmlTutorial.cs" />
+    <Compile Include="PageObjects\POC\Sandbox\CustomerDashboard.cs" />
     <Compile Include="Settings\AppConfigKeys.cs" />
     <Compile Include="Settings\ObjectRepository.cs" />
     <Compile Include="SetUp\Hooks1.cs" />
+    <Compile Include="TestScript\1. POC\Sandbox\2. Step Definitions\SandboxPOC1.cs" />
     <Compile Include="TestScript\FrameworkDevelopmentTests\2. StepDefinitions\InputManagerTestsSteps.cs" />
     <Compile Include="TestScript\FrameworkDevelopmentTests\ExpectedConditionTest\ExpectedConditionTest.cs" />
     <Compile Include="TestScript\FrameworkDevelopmentTests\HyperLink\TestHyperLink.cs" />
@@ -144,14 +146,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-	<None Include="App.chrome.config">
-	<SubType>Designer</SubType>
-	<DependentUpon>App.config</DependentUpon>
-	</None>
-	<None Include="App.edge.config">	
-	<SubType>Designer</SubType>
-	<DependentUpon>App.config</DependentUpon>
-	</None>
+    <None Include="App.chrome.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>App.config</DependentUpon>
+    </None>
+    <None Include="App.edge.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>App.config</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="ReadMe.md" />
     <None Include="Resources\Data\PediatricDonor.json" />
@@ -164,6 +166,7 @@
     <None Include="SpecRunTestProfile_2011_09.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="TestScript\1. POC\Sandbox\1. FeatureFiles\SandboxPOC1.feature" />
     <None Include="TestScript\FrameworkDevelopmentTests\1. FeatureFiles\InputManagerTests.feature" />
   </ItemGroup>
   <ItemGroup>
@@ -203,21 +206,15 @@
   <Import Project="..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.58\build\SpecFlow.Tools.MsBuild.Generation.targets" Condition="Exists('..\packages\SpecFlow.Tools.MsBuild.Generation.3.9.58\build\SpecFlow.Tools.MsBuild.Generation.targets')" />
   <Import Project="..\packages\SpecRun.Runner.3.9.31\build\SpecRun.Runner.targets" Condition="Exists('..\packages\SpecRun.Runner.3.9.31\build\SpecRun.Runner.targets')" />
   <Import Project="..\packages\SpecRun.SpecFlow.3-9-0.3.9.31\build\SpecRun.SpecFlow.3-9-0.targets" Condition="Exists('..\packages\SpecRun.SpecFlow.3-9-0.3.9.31\build\SpecRun.SpecFlow.3-9-0.targets')" />
-  
-  
-   <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
-     <!-- <UsingTask TaskName="TransformXml" AssemblyFile="C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VisualStudio\v16.0\Web\Microsoft.Web.Publishing.Tasks.dll " /> -->
-
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <!-- <UsingTask TaskName="TransformXml" AssemblyFile="C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VisualStudio\v16.0\Web\Microsoft.Web.Publishing.Tasks.dll " /> -->
   <Target Name="AfterCompile">
-	<!--Generate transformed app config in the intermediate directory-->	
- 
-	<ItemGroup>
-	  <Transforms Include="App.*.config" />
-	</ItemGroup>
-	<!-- Transforms all the templates, dropping the output into the installer's Configuration directory -->
-	<TransformXml Source="App.config" Transform="%(Transforms.Identity)" Destination="$([System.String]::Copy('$(TargetDir)\%(
-	Transforms.Identity)').Replace('App', 'Nhsbt.LD.AutomationTests.dll').Replace('app', 'Nhsbt.LD.AutomationTests.dll'))" />
-	
+    <!--Generate transformed app config in the intermediate directory-->
+    <ItemGroup>
+      <Transforms Include="App.*.config" />
+    </ItemGroup>
+    <!-- Transforms all the templates, dropping the output into the installer's Configuration directory -->
+    <TransformXml Source="App.config" Transform="%(Transforms.Identity)" Destination="$([System.String]::Copy('$(TargetDir)\%(&#xD;&#xA;	Transforms.Identity)').Replace('App', 'Nhsbt.LD.AutomationTests.dll').Replace('app', 'Nhsbt.LD.AutomationTests.dll'))" />
   </Target>
   <!--Override After Publish to support ClickOnce AfterPublish.  Target replaces the untransformed config file copied to the deployment directory with
   the transformed one -->

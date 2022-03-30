@@ -19,5 +19,9 @@ namespace Nhsbt.LD.AutomationTests.Interfaces
         string GetWebsite();
         string GetW3Schools();
 
+        string GetDeveloperSandbox();
+
+        string GetTransportInformationManager();
+
     }
 }

@@ -23,9 +23,7 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3
             this.driver = _driver;
         }
 
-        #region Elements
-
-       
+        #region Elements       
 
         private readonly By _resultFrame = By.XPath("//iframe[@id='iframeResult']");
 

@@ -75,9 +75,10 @@ namespace Nhsbt.LD.AutomationTests.TestScript.FrameworkDevelopmentTests._2._Step
         
         [Then(@"The data will be successfully submitted")]
         public void ThenTheDataWillBeSuccessfullySubmitted()
-        {   
+        {
             //By expectedResultXpath = ObjectRepository.htmlFormsPracticePage.GetSubmittedFormDataHeading;
             //Assert.AreEqual("Submitted Form Data", ObjectRepository.Driver.FindElement(expectedResultXpath).Text);
+            Assert.Fail();
         }
     }
 }

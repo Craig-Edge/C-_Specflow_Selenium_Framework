@@ -87,7 +87,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
             catch (NoSuchElementException)
             {
-                Logger.Debug("Cannot find element");
+                Logger.Error("Cannot find element");
                 return false;
             }
         }
