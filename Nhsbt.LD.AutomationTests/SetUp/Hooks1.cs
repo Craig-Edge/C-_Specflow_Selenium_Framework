@@ -77,18 +77,20 @@ namespace Nhsbt.LD.AutomationTests.SetUp
         {             
             if(_scenarioContext.TestError != null)
             {
-                var file = $"{GenericHelper.TakeScreenShot()}";
-                try
-                {
-                    var geturi = new Uri(file);
-                }
-                catch(Exception e)
-                {
-                    throw e;
-                }
+                GenericHelper.TakeScreenShot();
+
+                //var file = $"{GenericHelper.TakeScreenShot()}";
+                //try
+                //{
+                //    var geturi = new Uri(file);
+                //}
+                //catch(Exception e)
+                //{
+                //    throw e;
+                //}
                 //var thisUri = geturi.AbsoluteUri;               
-                Logger.Debug("file name is : " + file);
-                Logger.Debug("file uri is : " + file);
+                //Logger.Debug("file name is : " + file);
+                //Logger.Debug("file uri is : " + file);
                 //Logger.Error("Test step failed, please see screenshot for more details : " + thisUri);
             }
         }

@@ -29,7 +29,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             bool isClickableElementEnabled = wait.Until(condition =>
             {
                     var elementToBeEnabled = GenericHelper.GetElement(locator);
-                    isClickableElementEnabled = GenericHelper.IsElementPresent(elementToBeEnabled);
+                    isClickableElementEnabled = GenericHelper.IsElementEnabled(elementToBeEnabled);
                     if (isClickableElementEnabled) { elementToBeEnabled.Click(); }
                     return isClickableElementEnabled;          
             });
@@ -58,7 +58,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <param name="seconds"></param>
         /// <param name="minutes"></param>
         /// <param name="hours"></param>
-        public static void ScrollToElementAndClick(By locator, int seconds = 10, int minutes = 0, int hours = 0)
+        public static void ScrollToElementAndClick(By locator, int seconds = 100, int minutes = 0, int hours = 0)
         {            
             var element = PageManager.ScrollToElement(locator, seconds, minutes, hours);
             Click(element, seconds, minutes, hours);
@@ -116,6 +116,28 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             Logger.Info("Clearing element of data");
             element.SendKeys(data);
             Logger.Debug("Entered data : " + data);
+        }
+
+        
+        public static void SelectDropdownOptionByText(By locator, string option, int seconds = 10, int minutes = 0, int hours = 0)
+        {
+            GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);
+            var selectElement = new SelectElement(ObjectRepository.Driver.FindElement(locator));
+            selectElement.SelectByText(option);
+        }
+
+        public static void SelectDropdownOptionByValue(By locator, string option, int seconds = 10, int minutes = 0, int hours = 0)
+        {
+            GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);
+            var selectElement = new SelectElement(ObjectRepository.Driver.FindElement(locator));
+            selectElement.SelectByValue(option);
+        }
+
+        public static void SelectDropdownOptionByIndex(By locator, int index, int seconds = 10, int minutes = 0, int hours = 0)
+        {
+            GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);
+            var selectElement = new SelectElement(ObjectRepository.Driver.FindElement(locator));
+            selectElement.SelectByIndex(index);
         }
 
         #endregion

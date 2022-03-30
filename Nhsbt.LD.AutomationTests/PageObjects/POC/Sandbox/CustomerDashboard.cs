@@ -2,6 +2,7 @@
 using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using Nhsbt.LD.AutomationTests.Settings;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,10 +26,11 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox
 
         private By _moreFiltersExpansion = By.XPath("//button[@type='button'][text()='More Filters']");
 
-        private By _productDropdown = By.XPath("//select[@id='P1_PRODUCT']");
-        private By _productDropdownOption = By.XPath("//select[@id='P1_PRODUCT']/option");
+        //private By _productDropdown = By.XPath("//select[@id='P1_PRODUCT']");
+        private By _productDropdown = By.Id("P1_PRODUCT");
         private By _geographyDropdown = By.Id("P1_GEO");
         private By _publiclyReferenceableDropdown = By.Id("P1_REFERENCEABLE");
+        private By _publiclyReferenceableDropdownOption = By.XPath("//select[@id='P1_REFERENCEABLE']/option");
         private By _statusDropdown = By.Id("P1_STATUS");
         private By _industryDropdown = By.Id("P1_INDUSTRY");
         private By _categoryDropdown = By.Id("P1_CATEGORY");
@@ -43,18 +45,48 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox
 
         public void expandMoreFiltersSection()
         {
-
-
+            InputManager.ScrollToElementAndClick(_moreFiltersExpansion);
         }
 
         public void selectSpecificOptionFromDropdown(string dropdown = "product", string option = "- All -")
         {
-            string optionSelector = "[text()='" + option + "']";
-
             switch (dropdown)
             {
                 case "product":
-                    ObjectRepository.Driver.FindElement(By.XPath(_productDropdownOption + optionSelector));
+                    PageManager.ScrollToElement(_productDropdown);
+                    InputManager.SelectDropdownOptionByText(_productDropdown, option);
+                    break;
+                case "geography":
+                    PageManager.ScrollToElement(_geographyDropdown);
+                    InputManager.SelectDropdownOptionByText(_geographyDropdown, option);
+                    break;
+                case "publicly referenceable":
+                    PageManager.ScrollToElement(_publiclyReferenceableDropdown);
+                    InputManager.SelectDropdownOptionByText(_publiclyReferenceableDropdown, option);
+                    break;
+                case "status":
+                    PageManager.ScrollToElement(_statusDropdown);
+                    InputManager.SelectDropdownOptionByText(_statusDropdown, option);
+                    break;
+                case "category":
+                    PageManager.ScrollToElement(_categoryDropdown);
+                    InputManager.SelectDropdownOptionByText(_categoryDropdown, option);
+                    break;
+                case "type":
+                    PageManager.ScrollToElement(_typeDropdown);
+                    InputManager.SelectDropdownOptionByText(_typeDropdown, option);
+                    break;
+                case "marquee customer":
+                    PageManager.ScrollToElement(_marqueeCustomerDropdown);
+                    InputManager.SelectDropdownOptionByText(_marqueeCustomerDropdown, option);
+                    break;
+                case "partner":
+                    PageManager.ScrollToElement(_partnerDropdown);
+                    InputManager.SelectDropdownOptionByText(_partnerDropdown, option);
+                    break;
+                case "competitor":
+                    PageManager.ScrollToElement(_competitorDropdown);
+                    InputManager.SelectDropdownOptionByText(_competitorDropdown, option);
                     break;
             }            
         }
