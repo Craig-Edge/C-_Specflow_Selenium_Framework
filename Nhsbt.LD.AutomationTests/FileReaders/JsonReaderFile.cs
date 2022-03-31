@@ -21,8 +21,8 @@ namespace Nhsbt.LD.AutomationTests.FileReaders
             StreamReader streamReader = new StreamReader(GetRelativeFilePath(directoryPath, fileName));
             string jsonString = streamReader.ReadToEnd();
             DonorDataModel donorDataModel = JsonConvert.DeserializeObject<DonorDataModel>(jsonString);
-            Console.WriteLine(donorDataModel.key);
-            Console.WriteLine(donorDataModel.key2);
+            Console.WriteLine(donorDataModel.DataEntered);
+            Console.WriteLine(donorDataModel.key2);            
             return donorDataModel;
         }
 
@@ -36,7 +36,7 @@ namespace Nhsbt.LD.AutomationTests.FileReaders
 
         public class DonorDataModel
         {
-            public string key { get; set; }
+            public string DataEntered { get; set; }
             public string key2 { get; set; }           
         }
 

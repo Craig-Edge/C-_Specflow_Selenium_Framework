@@ -117,7 +117,6 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             element.SendKeys(data);
             Logger.Debug("Entered data : " + data);
         }
-
         
         public static void SelectDropdownOptionByText(By locator, string option, int seconds = 10, int minutes = 0, int hours = 0)
         {

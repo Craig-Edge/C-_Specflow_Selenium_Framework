@@ -15,7 +15,6 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
     {
         private IWebDriver _driver;
 
-
         // Change this to non-page factory implementation
         public PageBaseClass(IWebDriver driver)
         {
@@ -28,7 +27,7 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
 
         protected readonly By _tutorialMenuDropDown = By.Id("navbtn_tutorials");
         protected readonly By _learnHtmlLink = By.XPath("//*[@class='w3-bar-item w3-button'][text()='Learn HTML']");
-        protected readonly By _acceptAllCookies = By.Id("accept-choices");
+        protected readonly By _acceptAllCookies = By.Id("accept-choices");        
 
         #endregion
 

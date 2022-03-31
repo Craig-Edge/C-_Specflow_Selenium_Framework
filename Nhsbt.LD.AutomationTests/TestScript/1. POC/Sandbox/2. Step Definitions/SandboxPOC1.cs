@@ -1,4 +1,5 @@
-﻿using Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox;
 using Nhsbt.LD.AutomationTests.Settings;
 using System;
 using TechTalk.SpecFlow;
@@ -60,17 +61,21 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
         [When(@"I click the ""(.*)"" nav button")]
         public void WhenIClickTheNavButton(string navButton)
         {
-            ObjectRepository.customerDashboard.clickSpecificNavButton(navButton);
-            
+            ObjectRepository.customerDashboard.clickSpecificNavButton(navButton);            
         }
 
         [When(@"I enter the data from a Json file")]
         public void WhenIEnterTheDataFromAJsonFile()
         {
             ObjectRepository.partners = new Partners(ObjectRepository.Driver);
-            ObjectRepository.partners.enterDataIntoSeachFieldFromJson();
+            var jsonData = ObjectRepository.partners.enterDataIntoSeachFieldFromJson();          
+            _scenarioContext["DataEntered"] = jsonData.DataEntered;
         }
 
-
+        [Then(@"the data entered is present in the field")]
+        public void ThenTheDataEnteredIsPresentInTheField()
+        {            
+            Assert.AreEqual("Row text contains '" + _scenarioContext["DataEntered"] + "'", ObjectRepository.partners.GetTextFromSearchField());
+        }
     }
 }

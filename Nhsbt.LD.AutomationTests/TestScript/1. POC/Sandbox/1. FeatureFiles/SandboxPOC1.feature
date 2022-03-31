@@ -19,10 +19,10 @@ Scenario: Interact with dropdowns on the Dashboard Page
 	| competitor              |
 	And I select each option from the "publicly referenceable" dropdown
 	| option      |
-	| 0           |
-	| 1           |
-	| 2           |
-	| 3           |
+	| Yes         |
+	| No          |
+	| Potentially |
+	| - All -     |
 	
 @Sandbox_POC
 Scenario: Interact with the Side Nav icons 
@@ -41,6 +41,7 @@ Scenario: Enter Json data into field
 	Given I navigate to the dashoard of the Sandbox environment	
 	When I click the "partners" nav button
 	And I enter the data from a Json file
+	Then the data entered is present in the field
 
 
 	

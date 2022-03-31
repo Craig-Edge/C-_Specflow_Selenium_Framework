@@ -14,8 +14,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
     public class GenericHelper
     {
-        private static ILog Logger = Log4NetHelper.GetLogger(typeof(GenericHelper));
-
+        private static ILog Logger = Log4NetHelper.GetLogger(typeof(GenericHelper));        
 
         /// <summary>
         /// Takes a By locator and returns an IWebElement object
@@ -206,10 +205,11 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <param name="filename"></param>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        public static string TakeScreenShot(string filename = "Screen", string filePath = "..//..//Nhsbt.LD.AutomationTests//Nhsbt.LD.AutomationTests//Resources//Screenshots//")
+        public static string TakeScreenShot(string filename = "Screen", string filePath = "..//Nhsbt.LD.AutomationTests//Nhsbt.LD.AutomationTests//Resources//Screenshots//")
         {            
             Screenshot screen = ObjectRepository.Driver.TakeScreenshot();           
-            filename = filePath + filename + DateTime.Now.ToString(" dd-MM-yyyy -- hh-mm-ss") + ".jpeg";
+            filename = filePath + filename + DateTime.Now.ToString("dd-MM-yyyy--hh-mm-ss") + ".jpeg";
+            //filename = $"{AppDomain.CurrentDomain.BaseDirectory}\\{System.DateTime.Now.TimeOfDay.ToString("hhmmss")}.jpeg";
             screen.SaveAsFile(filename, ScreenshotImageFormat.Jpeg);
             return filename;
         }

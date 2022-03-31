@@ -122,13 +122,13 @@ this.ScenarioInitialize(scenarioInfo);
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "option"});
                 table2.AddRow(new string[] {
-                            "0"});
+                            "Yes"});
                 table2.AddRow(new string[] {
-                            "1"});
+                            "No"});
                 table2.AddRow(new string[] {
-                            "2"});
+                            "Potentially"});
                 table2.AddRow(new string[] {
-                            "3"});
+                            "- All -"});
 #line 20
  testRunner.And("I select each option from the \"publicly referenceable\" dropdown", ((string)(null)), table2, "And ");
 #line hidden
@@ -211,6 +211,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 43
  testRunner.And("I enter the data from a Json file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 44
+ testRunner.Then("the data entered is present in the field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -62,8 +62,7 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
                 default:                
                     throw new NoSuitableDriverFound("Driver Not Found " + ObjectRepository.Config.GetBrowser().ToString());
             }
-        }     
-      
+        }           
         
         public static void TearDown()
         {
