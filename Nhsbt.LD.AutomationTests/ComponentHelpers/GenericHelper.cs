@@ -149,7 +149,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         #region WaitForElementToBeVisible helper methods
 
         /// <summary>
-        /// Waits for an element to be present for a default of 10 seconds.  Can be used with By or IWebElement
+        /// Waits for an element to be displayed for a default of 10 seconds.  Can be used with By or IWebElement
         /// </summary>
         /// <param name="locator"></param>
         /// <param name="seconds"></param>
@@ -157,7 +157,6 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <param name="hours"></param>
         public static void WaitforElementToBeDisplayed(By locator, int seconds = 10, int minutes = 0, int hours = 0)
         {
-
             var wait = new WebDriverWait(ObjectRepository.Driver, new TimeSpan(hours, minutes, seconds));
             bool isElementDisplayed = wait.Until(condition =>
             {
@@ -167,7 +166,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         }
 
         /// <summary>
-        /// Waits for an element to be present for a default of 10 seconds.  Can be used with By or IWebElement
+        /// Waits for an element to be displayed for a default of 10 seconds.  Can be used with By or IWebElement
         /// </summary>
         /// <param name="locator"></param>
         /// <param name="seconds"></param>
@@ -196,6 +195,65 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             });
         }
 
+        /// <summary>
+        /// Waits for an element to be enabled for a default of 10 seconds.  Can be used with By or IWebElement
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <param name="seconds"></param>
+        /// <param name="minutes"></param>
+        /// <param name="hours"></param>
+        public static void WaitforElementToBeEnabled(By locator, int seconds = 10, int minutes = 0, int hours = 0)
+        {
+            var wait = new WebDriverWait(ObjectRepository.Driver, new TimeSpan(hours, minutes, seconds));
+            bool isElementEnabled = wait.Until(condition =>
+            {
+                try
+                {
+                    isElementEnabled = IsElementEnabled(locator);
+                    return isElementEnabled;
+                }
+                catch (StaleElementReferenceException)
+                {
+                    Logger.Error("Stale Element reference");
+                    return false;
+                }
+                catch (NoSuchElementException)
+                {
+                    Logger.Debug("Cannot find element using locator");
+                    return false;
+                }               
+            });
+        }
+
+        /// <summary>
+        /// Waits for an element to be enabled for a default of 10 seconds.  Can be used with By or IWebElement
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <param name="seconds"></param>
+        /// <param name="minutes"></param>
+        /// <param name="hours"></param>
+        public static void WaitforElementToBeEnabled(IWebElement element, int seconds = 10, int minutes = 0, int hours = 0)
+        {
+            var wait = new WebDriverWait(ObjectRepository.Driver, new TimeSpan(hours, minutes, seconds));
+            bool isElementDisplayed = wait.Until(condition =>
+            {
+                try
+                {
+                    isElementDisplayed = IsElementEnabled(element);
+                    return isElementDisplayed;
+                }
+                catch (StaleElementReferenceException)
+                {
+                    Logger.Error("Stale Element reference");
+                    return false;
+                }
+                catch (NoSuchElementException)
+                {
+                    Logger.Debug("Cannot find element using locator");
+                    return false;
+                }
+            });
+        }
         #endregion
 
         /// <summary>
