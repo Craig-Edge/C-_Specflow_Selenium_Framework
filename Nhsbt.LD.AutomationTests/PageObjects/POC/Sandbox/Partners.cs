@@ -33,9 +33,14 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox
         public DonorDataModel enterDataIntoSeachFieldFromJson()
         {
             JsonReaderFile fileReader = new JsonReaderFile();
-            var jsonData = fileReader.ReadJsonFileReader();            
+            var jsonData = fileReader.ReadDonorDataJsonFile();            
             InputManager.EnterData(_searchField, jsonData.Username1);
             return jsonData;
+        }
+
+        public void enterDataIntoSeachFieldFromJson(string data)
+        {           
+            InputManager.EnterData(_searchField, data);           
         }
 
         public string GetTextFromSearchField()

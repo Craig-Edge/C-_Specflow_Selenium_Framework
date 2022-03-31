@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,7 +17,7 @@ namespace Nhsbt.LD.AutomationTests.FileReaders
     public class JsonReaderFile
     {
 
-        public DonorDataModel ReadJsonFileReader(string fileName = "AdultDonor.json", string directoryPath = "..\\..\\Resources\\Data\\")
+        public DonorDataModel ReadDonorDataJsonFile(string fileName = "AdultDonor.json", string directoryPath = "..\\..\\Resources\\Data\\")
         {            
             StreamReader streamReader = new StreamReader(GetRelativeFilePath(directoryPath, fileName));
             string jsonString = streamReader.ReadToEnd();
@@ -24,6 +25,14 @@ namespace Nhsbt.LD.AutomationTests.FileReaders
             Console.WriteLine(donorDataModel.Username1);
             Console.WriteLine(donorDataModel.key2);            
             return donorDataModel;
+        }
+
+        public JObject GetJsonObject(string fileName = "AdultDonor.json", string directoryPath = "..\\..\\Resources\\Data\\")
+        {
+            StreamReader streamReader = new StreamReader(GetRelativeFilePath(directoryPath, fileName));
+            var myJsonString = streamReader.ReadToEnd();
+            var jo = JObject.Parse(myJsonString);
+            return jo;            
         }
 
         public string GetRelativeFilePath(string directoryPath, string fileName)

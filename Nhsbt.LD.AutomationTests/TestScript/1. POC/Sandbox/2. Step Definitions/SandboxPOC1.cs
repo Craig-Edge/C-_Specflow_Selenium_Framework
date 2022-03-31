@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhsbt.LD.AutomationTests.ComponentHelpers;
+using Nhsbt.LD.AutomationTests.FileReaders;
 using Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox;
 using Nhsbt.LD.AutomationTests.Settings;
 using System;
@@ -17,13 +19,11 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
         }
 
 
-
         [Given(@"I navigate to the dashoard of the Sandbox environment")]
         public void GivenINavigateToTheDashoardOfTheSandboxEnvironment()
         {
             ObjectRepository.customerDashboard = new CustomerDashboard(ObjectRepository.Driver);
             ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetDeveloperSandbox());
-            _scenarioContext["key"] = "keyValue";
         }
 
         [Given(@"I expand the More Filters section")]
@@ -35,8 +35,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
 
         [When(@"I click the ""(.*)"" dropdown")]
         public void WhenIClickTheDropdown(string dropdown, Table table)
-        {
-            string key = _scenarioContext["key"].ToString();
+        {            
             foreach(var row in table.Rows)
             {
                 foreach (string value in row.Values)
@@ -67,15 +66,24 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
         [When(@"I enter the data from a Json file")]
         public void WhenIEnterTheDataFromAJsonFile()
         {
+            JsonReaderFile j = new JsonReaderFile();
             ObjectRepository.partners = new Partners(ObjectRepository.Driver);
-            var jsonData = ObjectRepository.partners.enterDataIntoSeachFieldFromJson();          
-            _scenarioContext["DataEntered"] = jsonData.Username1;
+            //var jsonData = ObjectRepository.partners.enterDataIntoSeachFieldFromJson();          
+            //_scenarioContext["DataEntered"] = jsonData.Username1;
+            var jsonObject = j.GetJsonObject();                 
+            _scenarioContext["Username1"] = jsonObject["Username1"].ToString();
+            ObjectRepository.partners.enterDataIntoSeachFieldFromJson(_scenarioContext["Username1"].ToString());
+
+            foreach(var row in jsonObject)
+            {
+                Console.WriteLine(row.Value);
+            }
         }
 
         [Then(@"the data entered is present in the field")]
         public void ThenTheDataEnteredIsPresentInTheField()
         {            
-            Assert.AreEqual("Row text contains '" + _scenarioContext["DataEntered"] + "'", ObjectRepository.partners.GetTextFromSearchField());
+            Assert.AreEqual("Row text contains '" + _scenarioContext["Username1"] + "'", ObjectRepository.partners.GetTextFromSearchField());
         }
     }
 }
