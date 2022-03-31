@@ -86,13 +86,8 @@ namespace Nhsbt.LD.AutomationTests.SetUp
 
                 try
                 {
-                    //var geturi = new Uri(file);
-                    GenericHelper.TakeScreenShot();                    
-                    //Uri getUri = new Uri(GenericHelper.TakeScreenShot());
-                    //string thisUri = getUri.AbsoluteUri;
-                    //Logger.Debug("file name is : " + thisUri);
-                    //Logger.Debug("file uri is : " + thisUri);
-                    //Logger.Error("Test step failed, please see screenshot for more details : " + thisUri);
+                    string filename = GenericHelper.TakeScreenShot();        
+                    Logger.Error("Test step failed, please see screenshot for more details : " + filename);
                 }
                 catch (Exception e)
                 {

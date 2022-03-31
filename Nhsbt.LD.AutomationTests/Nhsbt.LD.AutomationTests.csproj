@@ -176,7 +176,6 @@
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.2.8\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.2.8\build\net45\MSTest.TestAdapter.props'))" />
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.2.8\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.2.8\build\net45\MSTest.TestAdapter.targets'))" />
     <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.75.0.3770.140\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.75.0.3770.140\build\Selenium.WebDriver.ChromeDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.99.0.1150.25\build\Selenium.WebDriver.MSEdgeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.MSEdgeDriver.99.0.1150.25\build\Selenium.WebDriver.MSEdgeDriver.targets'))" />
     <Error Condition="!Exists('..\packages\NUnit.3.13.1\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.13.1\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.targets'))" />
@@ -189,10 +188,10 @@
     <Error Condition="!Exists('..\packages\SpecRun.Runner.3.9.31\build\SpecRun.Runner.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecRun.Runner.3.9.31\build\SpecRun.Runner.targets'))" />
     <Error Condition="!Exists('..\packages\SpecRun.SpecFlow.3-9-0.3.9.31\build\SpecRun.SpecFlow.3-9-0.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecRun.SpecFlow.3-9-0.3.9.31\build\SpecRun.SpecFlow.3-9-0.props'))" />
     <Error Condition="!Exists('..\packages\SpecRun.SpecFlow.3-9-0.3.9.31\build\SpecRun.SpecFlow.3-9-0.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecRun.SpecFlow.3-9-0.3.9.31\build\SpecRun.SpecFlow.3-9-0.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.89.0.774.54\build\Selenium.WebDriver.MSEdgeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.MSEdgeDriver.89.0.774.54\build\Selenium.WebDriver.MSEdgeDriver.targets'))" />
   </Target>
   <Import Project="..\packages\MSTest.TestAdapter.2.2.8\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.2.2.8\build\net45\MSTest.TestAdapter.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.75.0.3770.140\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.75.0.3770.140\build\Selenium.WebDriver.ChromeDriver.targets')" />
-  <Import Project="..\packages\Selenium.WebDriver.MSEdgeDriver.99.0.1150.25\build\Selenium.WebDriver.MSEdgeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.99.0.1150.25\build\Selenium.WebDriver.MSEdgeDriver.targets')" />
   <Import Project="..\packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.targets" Condition="Exists('..\packages\Microsoft.CodeCoverage.17.1.0\build\netstandard1.0\Microsoft.CodeCoverage.targets')" />
   <Import Project="..\packages\Microsoft.NET.Test.Sdk.17.1.0\build\net45\Microsoft.NET.Test.Sdk.targets" Condition="Exists('..\packages\Microsoft.NET.Test.Sdk.17.1.0\build\net45\Microsoft.NET.Test.Sdk.targets')" />
   <Import Project="..\packages\SpecFlow.3.9.58\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.3.9.58\build\SpecFlow.targets')" />
@@ -209,6 +208,7 @@
     <!-- Transforms all the templates, dropping the output into the installer's Configuration directory -->
     <TransformXml Source="App.config" Transform="%(Transforms.Identity)" Destination="$([System.String]::Copy('$(TargetDir)\%(&#xD;&#xA;	Transforms.Identity)').Replace('App', 'Nhsbt.LD.AutomationTests.dll').Replace('app', 'Nhsbt.LD.AutomationTests.dll'))" />
   </Target>
+  <Import Project="..\packages\Selenium.WebDriver.MSEdgeDriver.89.0.774.54\build\Selenium.WebDriver.MSEdgeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.89.0.774.54\build\Selenium.WebDriver.MSEdgeDriver.targets')" />
   <!--Override After Publish to support ClickOnce AfterPublish.  Target replaces the untransformed config file copied to the deployment directory with
   the transformed one -->
 </Project>

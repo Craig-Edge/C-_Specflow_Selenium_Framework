@@ -38,9 +38,9 @@ Scenario: Interact with the Side Nav icons
 
 @Sandbox_POC
 Scenario: Enter Json data into field
-	Given I navigate to the dashoard of the Sandbox environment	
-	When I click the "partners" nav button
-	And I enter the data from a Json file
+	#Given I navigate to the dashoard of the Sandbox environment	
+	#When I click the "partners" nav button
+	#And I enter the data from a Json file
 	Then the data entered is present in the field
 
 
