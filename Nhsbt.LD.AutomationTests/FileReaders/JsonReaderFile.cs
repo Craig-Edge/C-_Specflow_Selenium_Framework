@@ -16,7 +16,12 @@ namespace Nhsbt.LD.AutomationTests.FileReaders
 
     public class JsonReaderFile
     {
-
+        /// <summary>
+        /// Reads a Json file and returns it as a DonorDataModel object which conforms to a specific schema related to a donor
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="directoryPath"></param>
+        /// <returns></returns>
         public DonorDataModel ReadDonorDataJsonFile(string fileName = "AdultDonor.json", string directoryPath = "..\\..\\Resources\\Data\\")
         {            
             StreamReader streamReader = new StreamReader(GetRelativeFilePath(directoryPath, fileName));
@@ -27,14 +32,27 @@ namespace Nhsbt.LD.AutomationTests.FileReaders
             return donorDataModel;
         }
 
+        /// <summary>
+        /// Reads a Json file and returns the Json Object
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="directoryPath"></param>
+        /// <returns>Json Object from file</returns>
         public JObject GetJsonObject(string fileName = "AdultDonor.json", string directoryPath = "..\\..\\Resources\\Data\\")
         {
-            StreamReader streamReader = new StreamReader(GetRelativeFilePath(directoryPath, fileName));
-            var myJsonString = streamReader.ReadToEnd();
-            var jo = JObject.Parse(myJsonString);
-            return jo;            
+            // Reads the json file using a relative path
+            StreamReader streamReader = new StreamReader(GetRelativeFilePath(directoryPath, fileName));  
+            
+            // Returns parsed Json file as a Json object which can then be accessed 
+            return JObject.Parse(streamReader.ReadToEnd());
         }
 
+        /// <summary>
+        /// Used to get a relative filepath and returns as a string
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <param name="fileName"></param>
+        /// <returns>Relative filepath as a string</returns>
         public string GetRelativeFilePath(string directoryPath, string fileName)
         {            
             var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
@@ -42,11 +60,5 @@ namespace Nhsbt.LD.AutomationTests.FileReaders
             string icon_path = new Uri(iconPath).LocalPath;
             return icon_path;
         }
-
-        //public class DonorDataModel
-        //{
-                  
-        //}
-
     }
 }
