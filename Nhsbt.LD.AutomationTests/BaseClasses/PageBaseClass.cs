@@ -19,32 +19,7 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
         public PageBaseClass(IWebDriver driver)
         {
             _driver = driver;
-        }
-
-        #region W3
-
-        #region Common Page Elements 
-
-        protected readonly By _tutorialMenuDropDown = By.Id("navbtn_tutorials");
-        protected readonly By _learnHtmlLink = By.XPath("//*[@class='w3-bar-item w3-button'][text()='Learn HTML']");
-        protected readonly By _acceptAllCookies = By.Id("accept-choices");        
-
-        #endregion
-
-        #region Interactions
-
-        protected void AcceptCookies()
-        {
-            InputManager.Click(_acceptAllCookies);
-        }
-
-        #endregion
-
-        #region Navigation
-
-        #endregion
-
-        #endregion
+        } 
 
         #region Sandbox Environment
 
@@ -58,15 +33,6 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
         private By _activitiesNavButton = By.Id("t_TreeNav_5");
         private By _reportsNavButton = By.Id("t_TreeNav_6");
         private By _administrationNavButton = By.Id("t_TreeNav_7");
-
-        #endregion
-
-        #region Getters
-
-        public Partners GetPartnersObject()
-        {
-            return new Partners(_driver);
-        }
 
         #endregion
 
