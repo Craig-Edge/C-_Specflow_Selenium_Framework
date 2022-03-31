@@ -69,7 +69,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
         {
             ObjectRepository.partners = new Partners(ObjectRepository.Driver);
             var jsonData = ObjectRepository.partners.enterDataIntoSeachFieldFromJson();          
-            _scenarioContext["DataEntered"] = jsonData.DataEntered;
+            _scenarioContext["DataEntered"] = jsonData.Username1;
         }
 
         [Then(@"the data entered is present in the field")]
