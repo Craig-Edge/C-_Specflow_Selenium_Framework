@@ -106,7 +106,6 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             return _logger;
         }
 
-
         #endregion
     }
 }

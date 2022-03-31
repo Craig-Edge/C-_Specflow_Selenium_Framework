@@ -184,7 +184,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 
         #endregion
 
-        public static void SwitchToNewWindow()
+        public static void SwitchToNewTab()
         {
             try
             {

@@ -105,7 +105,18 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             element.SendKeys(data);
             Logger.Debug("Entered data : " + data);
         }
-        
+
+        #endregion
+
+        #region Dropdown Helper methods
+        /// <summary>
+        /// Helper method that selects a dropdown value by Text
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <param name="option"></param>
+        /// <param name="seconds"></param>
+        /// <param name="minutes"></param>
+        /// <param name="hours"></param>
         public static void SelectDropdownOptionByText(By locator, string option, int seconds = 10, int minutes = 0, int hours = 0)
         {
             GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);
@@ -113,6 +124,14 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             selectElement.SelectByText(option);
         }
 
+        /// <summary>
+        /// Helper method that selects a dropdown value by value
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <param name="option"></param>
+        /// <param name="seconds"></param>
+        /// <param name="minutes"></param>
+        /// <param name="hours"></param>
         public static void SelectDropdownOptionByValue(By locator, string option, int seconds = 10, int minutes = 0, int hours = 0)
         {
             GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);
@@ -120,6 +139,14 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             selectElement.SelectByValue(option);
         }
 
+        /// <summary>
+        /// Helper method that selects a dropdown value by index
+        /// </summary>
+        /// <param name="locator"></param>
+        /// <param name="option"></param>
+        /// <param name="seconds"></param>
+        /// <param name="minutes"></param>
+        /// <param name="hours"></param>
         public static void SelectDropdownOptionByIndex(By locator, int index, int seconds = 10, int minutes = 0, int hours = 0)
         {
             GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);
@@ -128,5 +155,6 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         }
 
         #endregion
+
     }
 }

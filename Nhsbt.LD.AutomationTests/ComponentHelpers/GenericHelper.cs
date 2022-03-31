@@ -10,8 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Nhsbt.LD.AutomationTests.ComponentHelpers
-{
-
+{    
     public class GenericHelper
     {
         private static ILog Logger = Log4NetHelper.GetLogger(typeof(GenericHelper));        
