@@ -4,7 +4,6 @@ using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using Nhsbt.LD.AutomationTests.Configuration;
 using Nhsbt.LD.AutomationTests.CustomException;
 using Nhsbt.LD.AutomationTests.Settings;
-//using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;

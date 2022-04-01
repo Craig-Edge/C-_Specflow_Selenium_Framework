@@ -270,8 +270,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         public static string TakeScreenShot(string filename = "Screenshot", string filePath = "..//..//Nhsbt.LD.AutomationTests//Nhsbt.LD.AutomationTests//Resources//Screenshots//")
         {            
             Screenshot screen = ObjectRepository.Driver.TakeScreenshot();           
-            filename = filePath + filename + "-" + DateTime.Now.ToString("dd-MM-yyyy--HH-mm-ss") + ".jpeg";
-            //filename = $"{AppDomain.CurrentDomain.BaseDirectory}\\{System.DateTime.Now.TimeOfDay.ToString("hhmmss")}.jpeg";
+            filename = filePath + filename + "-" + DateTime.Now.ToString("dd-MM-yyyy--HH-mm-ss") + ".jpeg";           
             screen.SaveAsFile(filename, ScreenshotImageFormat.Jpeg);
             return filename;
         }
