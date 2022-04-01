@@ -34,7 +34,7 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox
         {
             JsonReaderFile fileReader = new JsonReaderFile();
             var jsonData = fileReader.ReadDonorDataJsonFile();            
-            InputManager.EnterData(_searchField, jsonData.Username1);
+            InputManager.EnterData(_searchField, jsonData.sn_Od);
             return jsonData;
         }
 

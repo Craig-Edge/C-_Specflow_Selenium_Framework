@@ -1,8 +1,6 @@
 ﻿using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using Nhsbt.LD.AutomationTests.Interfaces;
 using Nhsbt.LD.AutomationTests.PageObjects;
-
-using Nhsbt.LD.AutomationTests.PageObjects.IWebElementPageObjects.W3;
 using Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox;
 using OpenQA.Selenium;
 using System;
