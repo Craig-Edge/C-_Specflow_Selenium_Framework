@@ -23,7 +23,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
         public void GivenINavigateToTheDashoardOfTheSandboxEnvironment()
         {
             ObjectRepository.customerDashboard = new CustomerDashboard(ObjectRepository.Driver);
-            ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetDeveloperSandbox());
+            ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetDeveloperSandbox());            
         }
 
         [Given(@"I expand the More Filters section")]
@@ -71,8 +71,8 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
             //var jsonData = ObjectRepository.partners.enterDataIntoSeachFieldFromJson();          
             //_scenarioContext["DataEntered"] = jsonData.Username1;
             var jsonObject = j.GetJsonObject();                 
-            _scenarioContext["Username1"] = jsonObject["Username1"].ToString();
-            ObjectRepository.partners.enterDataIntoSeachFieldFromJson(_scenarioContext["Username1"].ToString());
+            _scenarioContext["sn_Od"] = jsonObject["sn_Od"].ToString();
+            ObjectRepository.partners.enterDataIntoSeachFieldFromJson(_scenarioContext["sn_Od"].ToString());
 
             foreach(var row in jsonObject)
             {
@@ -83,7 +83,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
         [Then(@"the data entered is present in the field")]
         public void ThenTheDataEnteredIsPresentInTheField()
         {            
-            Assert.AreEqual("Row text contains '" + _scenarioContext["Username1"] + "'", ObjectRepository.partners.GetTextFromSearchField());
+            Assert.AreEqual("Row text contains '" + _scenarioContext["sn_Od"] + "'", ObjectRepository.partners.GetTextFromSearchField());
         }
     }
 }

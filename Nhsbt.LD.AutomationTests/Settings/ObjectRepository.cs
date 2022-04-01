@@ -18,10 +18,6 @@ namespace Nhsbt.LD.AutomationTests.Settings
         public static IConfig Config { get; set; }
         public static IWebDriver Driver { get; set; }
 
-        public static HtmlFormsPracticePage htmlFormsPracticePage;
-        public static HtmlTutorial htmlTutorial;
-        public static HomePage homePage;
-
         public static CustomerDashboard customerDashboard;
         public static Partners partners;
     }

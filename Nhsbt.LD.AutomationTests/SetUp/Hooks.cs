@@ -71,8 +71,7 @@ namespace Nhsbt.LD.AutomationTests.SetUp
         public void AfterScenario()
         {
             // TODO - refactoring - the below is obsolete, replace with up to date implementation
-            Console.WriteLine("Title : {0}", _scenarioContext.ScenarioInfo.Title);
-            Console.WriteLine("Error : {0}", _scenarioContext.TestError);
+            Logger.Info("Title : " + _scenarioContext.ScenarioInfo.Title);           
         }
 
         [AfterStep]
@@ -80,13 +79,9 @@ namespace Nhsbt.LD.AutomationTests.SetUp
         {
             if (_scenarioContext.TestError != null)
             {
-                //GenericHelper.TakeScreenShot();
-
-                //var file = $"{GenericHelper.TakeScreenShot()}";
-
                 try
                 {
-                    string filename = GenericHelper.TakeScreenShot();        
+                    string filename = GenericHelper.TakeScreenShot(_scenarioContext.ScenarioInfo.Title);                        
                     Logger.Error("Test step failed, please see screenshot for more details : " + filename);
                 }
                 catch (Exception e)
@@ -95,52 +90,6 @@ namespace Nhsbt.LD.AutomationTests.SetUp
                 }
             }
 
-            //[AfterStep]
-            //public void AfterWebTest()
-            //{
-            //    if (ScenarioContext.Current.TestError != null)
-            //    {
-            //        TakeScreenshot(ObjectRepository.Driver);
-            //    }
-            //}
-
-            //private void TakeScreenshot(IWebDriver driver)
-            //{
-            //    try
-            //    {
-            //    //string fileNameBase = string.Format("error{0}",                                                  
-            //    //                                    DateTime.Now.ToString("yyyyMMdd_HHmmss"));
-
-
-            //    //string fileNameBase = $"{AppDomain.CurrentDomain.BaseDirectory}..//..//Resources//Screenshots{_scenarioContext.ScenarioInfo.Title + "_" + System.DateTime.Now.TimeOfDay.ToString("hh-mm-ss")}";
-            //    string fileNameBase = "..//..//Resources//Screenshots//" + _scenarioContext.ScenarioInfo.Title + "_" + System.DateTime.Now.TimeOfDay.ToString("hh-mm-ss");
-            //    var artifactDirectory = Path.Combine(Directory.GetCurrentDirectory(), "testresults");
-            //        if (!Directory.Exists(artifactDirectory))
-            //            Directory.CreateDirectory(artifactDirectory);
-
-            //        string pageSource = driver.PageSource;
-            //        string sourceFilePath = Path.Combine(artifactDirectory, fileNameBase + "_source.html");
-            //        File.WriteAllText(sourceFilePath, pageSource, Encoding.UTF8);
-            //        Console.WriteLine("Page source: {0}", new Uri(sourceFilePath));
-
-            //        ITakesScreenshot takesScreenshot = driver as ITakesScreenshot;
-
-            //        if (takesScreenshot != null)
-            //        {
-            //            var screenshot = takesScreenshot.GetScreenshot();
-
-            //            string screenshotFilePath = Path.Combine(artifactDirectory, fileNameBase + "_screenshot.png");
-
-            //            screenshot.SaveAsFile(screenshotFilePath, ScreenshotImageFormat.Png);
-
-            //            Console.WriteLine("Screenshot: {0}", new Uri(screenshotFilePath));
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Console.WriteLine("Error while taking screenshot: {0}", ex);
-            //    }
-            //}
 
         }
     }
