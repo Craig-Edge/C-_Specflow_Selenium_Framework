@@ -4,10 +4,6 @@ using log4net.Config;
 using log4net.Core;
 using log4net.Layout;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 {

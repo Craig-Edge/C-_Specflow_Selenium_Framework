@@ -1,6 +1,5 @@
 ﻿
 using log4net;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using Nhsbt.LD.AutomationTests.Configuration;
 using Nhsbt.LD.AutomationTests.CustomException;
@@ -9,13 +8,6 @@ using Nhsbt.LD.AutomationTests.Settings;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-using TechTalk.SpecFlow;
 
 namespace Nhsbt.LD.AutomationTests.BaseClasses
 {      

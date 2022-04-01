@@ -1,11 +1,7 @@
 ﻿using Nhsbt.LD.AutomationTests.Interfaces;
 using Nhsbt.LD.AutomationTests.Settings;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nhsbt.LD.AutomationTests.Configuration
 {

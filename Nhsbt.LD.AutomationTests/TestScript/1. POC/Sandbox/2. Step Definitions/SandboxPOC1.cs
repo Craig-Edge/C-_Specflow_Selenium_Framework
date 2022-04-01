@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using Nhsbt.LD.AutomationTests.FileReaders;
 using Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox;
 using Nhsbt.LD.AutomationTests.Settings;

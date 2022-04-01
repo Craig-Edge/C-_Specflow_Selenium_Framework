@@ -1,13 +1,6 @@
-﻿using Nhsbt.LD.AutomationTests.ComponentHelpers;
-using Nhsbt.LD.AutomationTests.Interfaces;
-using Nhsbt.LD.AutomationTests.PageObjects;
+﻿using Nhsbt.LD.AutomationTests.Interfaces;
 using Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nhsbt.LD.AutomationTests.Settings
 {
