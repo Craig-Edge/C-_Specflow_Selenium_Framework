@@ -16,8 +16,6 @@ namespace Nhsbt.LD.AutomationTests.Interfaces
         BrowserType GetBrowser();
         string GetUsername();
         string GetPassword();
-        string GetWebsite();
-        string GetW3Schools();
         string GetDeveloperSandbox();
         string GetTransportInformationManager();
 
