@@ -1,4 +1,5 @@
 ﻿1. #Living Donations Automation Framework
+
 2. ##Project description
 	* This is the automation frfamework for the living donations project
 	* This framework uses the following technologies, all of which are open source
@@ -13,8 +14,10 @@
 	      been updated with no whitespace.
 	    * The PageFactory and ExpectedConditions classes were depricated from Selenium in version 3.11 which means that alternatives 
 	      had to be implemented in their place.  This will be covered in more detail later in this document
-3. ##Table of Contents
+
 3. ##Framework overview
+	* Please click on the link for the Framework Overview document
+
 4. ##Step for installation
 	* Things to check:
 		* We must ensure that the version of the browsers that is installed on the machine is correct for this project.
@@ -47,22 +50,15 @@
 		* Next we build the solution as we did before
 		* Now we run a test scenario as we attempted to before by right-clicking on a test in the "Test Explorer" pane and clicking "Run"
 		* The scenario should run without any issues.  If any issues arise please reach out to an automation engineer for support.	
+
 5. ##How to use the project
 	* Please click on the link to watch a short video on how to use this framework
-6. ##Badges
+	(Link to Video)
 
+6. Branching Strategy
+	* We will follow a GitHub - Flow branching strategy, please click the link for more info 
+	[GitHub - Flow]("https://docs.github.com/en/get-started/quickstart/github-flow?msclkid=1ee9e23bb42d11ec8ec54444d15d7c64")
 
-explain the structure at a high level
-
-Branching strategy and merge rules, review process
-
-pointer to onboarding
-
-Open source licences - Maybe, ask the others
-
-Need for consistent approach during the lifecycle agnostic of the engineer, use Ntxd as an example
-
-JSON files 
 
 
 
