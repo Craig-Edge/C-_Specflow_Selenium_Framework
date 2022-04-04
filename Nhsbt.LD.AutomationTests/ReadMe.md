@@ -58,7 +58,7 @@
 
 6. ##Branching Strategy
 	* We will follow a GitHub - Flow branching strategy, please click the link for more info 
-	[GitHub - Flow]("https://docs.github.com/en/get-started/quickstart/github-flow?msclkid=1ee9e23bb42d11ec8ec54444d15d7c64")
+	[GitHub - Flow](https://docs.github.com/en/get-started/quickstart/github-flow?msclkid=1ee9e23bb42d11ec8ec54444d15d7c64)
 
 
 
