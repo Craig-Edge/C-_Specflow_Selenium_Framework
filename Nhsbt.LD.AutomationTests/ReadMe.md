@@ -17,13 +17,14 @@
 		* The repo name had whitespace which led to directory filepath issues with local repos, the repo name has since
 	      been updated with no whitespace.
 	    * The PageFactory and ExpectedConditions classes were depricated from Selenium in version 3.11 which means that alternatives 
-	      had to be implemented in their place.  This will be covered in more detail later in this document
+	      had to be implemented in their place.  This will be covered in more detail later in the video tutorial, 
+		  a link can be found in the “How to use the project” section.
 
 3. ##Framework overview
 	* Please click on the link for the Framework Overview document
 	(Link to document)
 
-4. ##Step for installation
+4. ##Steps for installation
 	* Things to check:
 		* We must ensure that the version of the browsers that is installed on the machine is correct for this project.
 		* We have a working version of Visual Studio installed with all of the required additional software, see screenshot below
