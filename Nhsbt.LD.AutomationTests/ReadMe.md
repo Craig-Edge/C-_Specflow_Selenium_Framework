@@ -64,6 +64,10 @@
 	* We will follow a GitHub - Flow branching strategy, please click the link for more info 
 	[GitHub - Flow](https://docs.github.com/en/get-started/quickstart/github-flow?msclkid=1ee9e23bb42d11ec8ec54444d15d7c64)
 
-
+7. ##Useful Links
+	* [C# Coding best practices](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions?msclkid=72b98579b43311ecb0ee2b34c0bd76c2)
+	* [Object Orientated Programming](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/)
+	* [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/?msclkid=8e59ff9fb43311ec8897464babe0fbb5)
+	* [SpecFlow](https://docs.specflow.org/projects/getting-started/en/latest/index.html)
 
 
