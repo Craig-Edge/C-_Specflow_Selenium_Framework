@@ -1,12 +1,16 @@
 ﻿1. #Living Donations Automation Framework
 
 2. ##Project description
-	* This is the automation frfamework for the living donations project
-	* This framework uses the following technologies, all of which are open source
+	* This is the automation framework for the living donations project
+	* This framework uses the following technologies, all of which are open source:
+		* BODI 
 		* C# - 4.7.2 .NET Framework
+		* Gherkin
+		* Log4Net
 		* Selenium 
 		* Specflow
-		* etc
+		* SpecRun.SpecFlow
+		
 	* There were some challenges during the creation of this framework:
 		* I attempted to have seperate branches with different versions of the Chrome Web Driver
 		  this led to multiple version entries in the projects .csproj file that caused intermittent issues at build time.
@@ -53,7 +57,7 @@
 		* The scenario should run without any issues.  If any issues arise please reach out to an automation engineer for support.	
 
 5. ##How to use the project
-	* Please click on the link to watch a short video on how to use this framework
+	* Please click on the link to watch a short video on how to use this framework after the above set up is completed
 	(Link to Video)
 
 6. ##Branching Strategy
