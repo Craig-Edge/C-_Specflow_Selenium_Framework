@@ -79,7 +79,7 @@ namespace Nhsbt.LD.AutomationTests.FileReaders.ExcelReader
          /// </summary>
          /// <param name="excelData"></param>
          /// <param name="_scenarioContext"></param>
-        public static void loadExcelDataIntoScenarioContextDictionary(string sheetName, ScenarioContext _scenarioContext)
+        public static void LoadExcelDataIntoScenarioContextDictionary(string sheetName, ScenarioContext _scenarioContext)
         {
             DataTable excelData = GetExcelDataFromSheet(sheetName);
 
@@ -97,7 +97,7 @@ namespace Nhsbt.LD.AutomationTests.FileReaders.ExcelReader
             }
         }
 
-        public static Dictionary<string, string> loadExcelDataIntoDictionary(string sheetName)
+        public static Dictionary<string, string> LoadExcelDataIntoDictionary(string sheetName)
         {
             DataTable excelData = GetExcelDataFromSheet(sheetName);
             Dictionary<string, string> data = new Dictionary<string, string>();

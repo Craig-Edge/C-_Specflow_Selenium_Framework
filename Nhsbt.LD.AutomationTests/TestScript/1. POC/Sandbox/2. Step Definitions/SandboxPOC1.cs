@@ -86,11 +86,11 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
         {
             // Loads the excel data into the scenario context dictionary, assumes that the data is in key vale format
             // Must pass the _scenarioContext reference as the second parameter
-            ExcelFileReader.loadExcelDataIntoScenarioContextDictionary("AdultDonor", _scenarioContext);
+            ExcelFileReader.LoadExcelDataIntoScenarioContextDictionary("AdultDonor", _scenarioContext);
 
             // TODO - I can't really do much else until I see how the data is fomatted CG 09/04/2022
             // Loads the excel data into the a dictionary, assumes that the data is in key value format
-            var data = ExcelFileReader.loadExcelDataIntoDictionary("AdultDonor");
+            var data = ExcelFileReader.LoadExcelDataIntoDictionary("AdultDonor");
         }
 
 
