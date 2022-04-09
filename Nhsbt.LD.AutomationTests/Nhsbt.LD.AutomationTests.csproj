@@ -49,6 +49,12 @@
     <Reference Include="BoDi, Version=1.5.0.0, Culture=neutral, PublicKeyToken=ff7cd5ea2744b496, processorArchitecture=MSIL">
       <HintPath>..\packages\BoDi.1.5.0\lib\net45\BoDi.dll</HintPath>
     </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="Gherkin, Version=22.0.0.0, Culture=neutral, PublicKeyToken=86496cfa5b4a5851, processorArchitecture=MSIL">
       <HintPath>..\packages\Gherkin.22.0.0\lib\net45\Gherkin.dll</HintPath>
     </Reference>
@@ -88,6 +94,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.ServiceProcess" />
@@ -116,6 +123,7 @@
   <ItemGroup>
     <Compile Include="BaseClasses\BaseClass.cs" />
     <Compile Include="BaseClasses\PageBaseClass.cs" />
+    <Compile Include="ComponentHelpers\FileReaderHelper.cs" />
     <Compile Include="ComponentHelpers\GenericHelper.cs" />
     <Compile Include="ComponentHelpers\InputManager.cs" />
     <Compile Include="ComponentHelpers\Log4NetHelper.cs" />
@@ -123,8 +131,9 @@
     <Compile Include="Configuration\AppConfigReader.cs" />
     <Compile Include="Configuration\BrowserType.cs" />
     <Compile Include="CustomException\NoSuitableDriverFound.cs" />
-    <Compile Include="FileReaders\DataModels\DonorDataModel.cs" />
-    <Compile Include="FileReaders\JsonReaderFile.cs" />
+    <Compile Include="FileReaders\ExcelReader\ExcelFileReader.cs" />
+    <Compile Include="FileReaders\JsonReader\DataModels\DonorDataModel.cs" />
+    <Compile Include="FileReaders\JsonReader\JsonReaderFile.cs" />
     <Compile Include="Interfaces\IConfig.cs" />
     <Compile Include="PageObjects\POC\Sandbox\CustomerDashboard.cs" />
     <Compile Include="PageObjects\POC\Sandbox\Partners.cs" />
@@ -146,8 +155,9 @@
     </None>
     <None Include="packages.config" />
     <None Include="ReadMe.md" />
-    <None Include="Resources\Data\PediatricDonor.json" />
-    <None Include="Resources\Data\AdultDonor.json" />
+    <None Include="Resources\Data\ExcelFiles\Test.xlsx" />
+    <None Include="Resources\Data\JsonFIles\PediatricDonor.json" />
+    <None Include="Resources\Data\JsonFIles\AdultDonor.json" />
     <None Include="Default.srprofile" />
     <None Include="runtests.cmd" />
     <None Include="SpecRunTestProfile.xsd">
@@ -196,12 +206,12 @@
   <!-- <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" /> -->
   <!-- <UsingTask TaskName="TransformXml" AssemblyFile="C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VisualStudio\v16.0\Web\Microsoft.Web.Publishing.Tasks.dll " /> -->
   <!-- <Target Name="AfterCompile"> -->
-    <!--Generate transformed app config in the intermediate directory-->
-    <!-- <ItemGroup> -->
-      <!-- <Transforms Include="App.*.config" /> -->
-    <!-- </ItemGroup> -->
-    <!-- Transforms all the templates, dropping the output into the installer's Configuration directory -->
-    <!-- <TransformXml Source="App.config" Transform="%(Transforms.Identity)" Destination="$([System.String]::Copy('$(TargetDir)\%(&#xD;&#xA;	Transforms.Identity)').Replace('App', 'Nhsbt.LD.AutomationTests.dll').Replace('app', 'Nhsbt.LD.AutomationTests.dll'))" /> -->
+  <!--Generate transformed app config in the intermediate directory-->
+  <!-- <ItemGroup> -->
+  <!-- <Transforms Include="App.*.config" /> -->
+  <!-- </ItemGroup> -->
+  <!-- Transforms all the templates, dropping the output into the installer's Configuration directory -->
+  <!-- <TransformXml Source="App.config" Transform="%(Transforms.Identity)" Destination="$([System.String]::Copy('$(TargetDir)\%(&#xD;&#xA;	Transforms.Identity)').Replace('App', 'Nhsbt.LD.AutomationTests.dll').Replace('app', 'Nhsbt.LD.AutomationTests.dll'))" /> -->
   <!-- </Target> -->
   <!-- <Import Project="..\packages\Selenium.WebDriver.MSEdgeDriver.89.0.774.54\build\Selenium.WebDriver.MSEdgeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.89.0.774.54\build\Selenium.WebDriver.MSEdgeDriver.targets')" /> -->
   <!-- <Import Project="..\packages\Selenium.WebDriver.MSEdgeDriver.99.0.1150.46\build\Selenium.WebDriver.MSEdgeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.99.0.1150.46\build\Selenium.WebDriver.MSEdgeDriver.targets')" /> -->

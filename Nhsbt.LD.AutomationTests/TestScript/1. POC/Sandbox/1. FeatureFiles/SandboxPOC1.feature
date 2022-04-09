@@ -43,5 +43,13 @@ Scenario: Enter Json data into field
 	And I enter the data from a Json file
 	Then the data entered is present in the field
 
+@Sandbox_POC
+	Scenario: Enter excel data into field
+	Given I navigate to the dashoard of the Sandbox environment	
+	When I click the "partners" nav button
+	And I load excel data into the scenario context dictionary
+	And I enter the data from a excel file
+	Then the data entered is present in the field
+
 
 	

@@ -31,7 +31,7 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox
             return jsonData;
         }
 
-        public void enterDataIntoSeachFieldFromJson(string data)
+        public void enterDataIntoSeachField(string data)
         {           
             InputManager.EnterData(_searchField, data);           
         }

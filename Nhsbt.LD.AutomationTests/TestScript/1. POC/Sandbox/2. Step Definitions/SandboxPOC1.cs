@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using Nhsbt.LD.AutomationTests.FileReaders;
+using Nhsbt.LD.AutomationTests.FileReaders.ExcelReader;
 using Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox;
 using Nhsbt.LD.AutomationTests.Settings;
 using System;
@@ -71,7 +73,7 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
             //_scenarioContext["DataEntered"] = jsonData.Username1;
             var jsonObject = j.GetJsonObject();                 
             _scenarioContext["sn_Od"] = jsonObject["sn_Od"].ToString();
-            ObjectRepository.partners.enterDataIntoSeachFieldFromJson(_scenarioContext["sn_Od"].ToString());
+            ObjectRepository.partners.enterDataIntoSeachField(_scenarioContext["sn_Od"].ToString());
 
             foreach(var row in jsonObject)
             {
@@ -79,10 +81,27 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
             }
         }
 
+        [When(@"I load excel data into the scenario context dictionary")]
+        public void WhenILoadExcelDataIntoTheScenarioContextDictionary()
+        {
+            var excelObject = ExcelFileReader.GetExcelDataFromSheet();
+
+            // Must pass the _scenarioContext reference as the second parameter
+            ExcelFileReader.loadExcelDataIntoScenarioContextDictionary(excelObject, _scenarioContext);           
+        }
+
+
+        [When(@"I enter the data from a excel file")]
+        public void WhenIEnterTheDataFromAExcelFile()
+        {            
+            ObjectRepository.partners = new Partners(ObjectRepository.Driver);        
+            ObjectRepository.partners.enterDataIntoSeachField(_scenarioContext["donorType"].ToString());        
+        }
+
         [Then(@"the data entered is present in the field")]
         public void ThenTheDataEnteredIsPresentInTheField()
         {            
-            Assert.AreEqual("Row text contains '" + _scenarioContext["sn_Od"] + "'", ObjectRepository.partners.GetTextFromSearchField());
+            Assert.AreEqual("Row text contains '" + _scenarioContext["donorType"] + "'", ObjectRepository.partners.GetTextFromSearchField());
         }
     }
 }

@@ -47,7 +47,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         }
 
         /// <summary>
-        /// 
+        /// Waits for an element to be visible, scrolls to that element then waits for that element to be clickable and clicks
         /// </summary>
         /// <param name="element"></param>
         /// <param name="seconds"></param>
