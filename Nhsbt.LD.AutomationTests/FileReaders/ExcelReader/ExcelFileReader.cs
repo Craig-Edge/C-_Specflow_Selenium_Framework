@@ -31,25 +31,13 @@ namespace Nhsbt.LD.AutomationTests.FileReaders.ExcelReader
         {            
             _fileReaderHelper = new FileReaderHelper();
             _cache = new Dictionary<string, IExcelDataReader>();
-        }
-
-        public List<string> GetExcelObject(string fileName = "Test.xlsx", string directoryPath = "..\\..\\Resources\\Data\\ExcelFiles\\")
-        {
-            // Reads the json file using a relative path
-            StreamReader streamReader = new StreamReader(_fileReaderHelper.GetRelativeFilePath(directoryPath, fileName));
-            List<string> excelData = new List<string>();
-            string  firstExcelData =streamReader.ReadToEnd();
-            excelData.Add(firstExcelData);
-            // Returns parsed Json file as a Json object which can then be accessed 
-            return excelData.ToList();
-        }
-
-        [TestMethod]
-        public static DataTable GetExcelDataFromSheet(string fileName = "Test.xlsx", string directoryPath = "..\\..\\Resources\\Data\\ExcelFiles\\", string sheet = "AdultDonor")
+        } 
+       
+        public static DataTable GetExcelDataFromSheet(string sheetName, string fileName = "Test.xlsx", string directoryPath = "..\\..\\Resources\\Data\\ExcelFiles\\")
         {
             _stream = new FileStream(_fileReaderHelper.GetRelativeFilePath(directoryPath, fileName), FileMode.Open, FileAccess.Read);
             IExcelDataReader reader = ExcelReaderFactory.CreateOpenXmlReader(_stream);
-            DataTable table = reader.AsDataSet().Tables[sheet];                 
+            DataTable table = reader.AsDataSet().Tables[sheetName];                 
             return table;
         }
 
@@ -91,8 +79,10 @@ namespace Nhsbt.LD.AutomationTests.FileReaders.ExcelReader
          /// </summary>
          /// <param name="excelData"></param>
          /// <param name="_scenarioContext"></param>
-        public static void loadExcelDataIntoScenarioContextDictionary(DataTable excelData, ScenarioContext _scenarioContext)
+        public static void loadExcelDataIntoScenarioContextDictionary(string sheetName, ScenarioContext _scenarioContext)
         {
+            DataTable excelData = GetExcelDataFromSheet(sheetName);
+
             for (int i = 0; i < excelData.Rows.Count; i++)
             {
                 var col = excelData.Rows[i];
@@ -107,9 +97,11 @@ namespace Nhsbt.LD.AutomationTests.FileReaders.ExcelReader
             }
         }
 
-        public static Dictionary<string, string> loadExcelDataIntoDictionary(DataTable excelData)
+        public static Dictionary<string, string> loadExcelDataIntoDictionary(string sheetName)
         {
+            DataTable excelData = GetExcelDataFromSheet(sheetName);
             Dictionary<string, string> data = new Dictionary<string, string>();
+
             for (int i = 0; i < excelData.Rows.Count; i++)
             {
                 var col = excelData.Rows[i];
