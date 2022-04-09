@@ -58,14 +58,14 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
                 case "administration":
                     InputManager.Click(_administrationNavButton);
                     break;
-            }
-            #endregion
-
-            #region Navigation         
-
-            #endregion            
+            }     
         }
     }
+
+    #endregion
+
+
+    #region Navigation         
 
     #endregion
 

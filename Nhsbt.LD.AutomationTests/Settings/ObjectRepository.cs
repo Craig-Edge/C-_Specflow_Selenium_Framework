@@ -8,8 +8,6 @@ namespace Nhsbt.LD.AutomationTests.Settings
     {
         public static IConfig Config { get; set; }
         public static IWebDriver Driver { get; set; }
-
-        public static CustomerDashboard customerDashboard;
-        public static Partners partners;
+       
     }
 }
