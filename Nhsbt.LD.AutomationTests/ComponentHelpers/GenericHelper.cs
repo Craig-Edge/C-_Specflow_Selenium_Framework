@@ -40,6 +40,11 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             }
         }
 
+        internal static void WaitforElementToBeDisplayed(object searchButton)
+        {
+            throw new NotImplementedException();
+        }
+
         #region IsElementPresent helper methods
 
         /// <summary>

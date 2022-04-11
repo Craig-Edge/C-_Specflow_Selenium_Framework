@@ -13,6 +13,7 @@ namespace Nhsbt.LD.AutomationTests.Interfaces
         string GetPassword();
         string GetDeveloperSandbox();
         string GetTransportInformationManager();
-
+        string GetSandboxURL();
+        string GetJsonFileName();
     }
 }

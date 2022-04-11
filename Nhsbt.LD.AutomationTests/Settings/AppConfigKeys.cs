@@ -7,5 +7,7 @@
         public const string Password = "Password";      
         public const string DeveloperSandbox = "DeveloperSandbox";
         public const string TransportInformationManager = "TransportInformationManager";
+        public const string SandboxURL = "SandboxURL";
+        public const string JsonFileName = "JsonFileName";
     }
 }

@@ -3,6 +3,7 @@ using log4net;
 using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using Nhsbt.LD.AutomationTests.Configuration;
 using Nhsbt.LD.AutomationTests.CustomException;
+using Nhsbt.LD.AutomationTests.FileReaders;
 using Nhsbt.LD.AutomationTests.Settings;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -53,7 +54,8 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
                 default:                
                     throw new NoSuitableDriverFound("Driver Not Found " + ObjectRepository.Config.GetBrowser().ToString());
             }
-        }           
+        }
+
         
         public static void TearDown()
         {

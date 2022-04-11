@@ -11,5 +11,7 @@ namespace Nhsbt.LD.AutomationTests.Settings
 
         public static CustomerDashboard customerDashboard;
         public static Partners partners;
+        public static TestSandboxWebsite TestSandboxWebsite;
     }
+    
 }

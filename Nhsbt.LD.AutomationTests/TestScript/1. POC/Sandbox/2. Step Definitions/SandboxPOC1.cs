@@ -69,7 +69,9 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
             ObjectRepository.partners = new Partners(ObjectRepository.Driver);
             //var jsonData = ObjectRepository.partners.enterDataIntoSeachFieldFromJson();          
             //_scenarioContext["DataEntered"] = jsonData.Username1;
-            var jsonObject = j.GetJsonObject();                 
+            //var jsonObject = j.GetJsonObject();
+            var jsonObject = j.GetJsonObject(ObjectRepository.Config.GetJsonFileName());
+           
             _scenarioContext["sn_Od"] = jsonObject["sn_Od"].ToString();
             ObjectRepository.partners.enterDataIntoSeachFieldFromJson(_scenarioContext["sn_Od"].ToString());
 

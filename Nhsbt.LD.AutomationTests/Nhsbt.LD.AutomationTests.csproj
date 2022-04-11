@@ -49,6 +49,9 @@
     <Reference Include="BoDi, Version=1.5.0.0, Culture=neutral, PublicKeyToken=ff7cd5ea2744b496, processorArchitecture=MSIL">
       <HintPath>..\packages\BoDi.1.5.0\lib\net45\BoDi.dll</HintPath>
     </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
     <Reference Include="Gherkin, Version=22.0.0.0, Culture=neutral, PublicKeyToken=86496cfa5b4a5851, processorArchitecture=MSIL">
       <HintPath>..\packages\Gherkin.22.0.0\lib\net45\Gherkin.dll</HintPath>
     </Reference>
@@ -88,6 +91,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.ServiceProcess" />
@@ -125,14 +129,17 @@
     <Compile Include="CustomException\NoSuitableDriverFound.cs" />
     <Compile Include="FileReaders\DataModels\DonorDataModel.cs" />
     <Compile Include="FileReaders\JsonReaderFile.cs" />
+    <Compile Include="FileReaders\JsonReaderNew.cs" />
     <Compile Include="Interfaces\IConfig.cs" />
     <Compile Include="PageObjects\POC\Sandbox\CustomerDashboard.cs" />
     <Compile Include="PageObjects\POC\Sandbox\Partners.cs" />
+    <Compile Include="PageObjects\POC\Sandbox\TestSandboxWebsite.cs" />
     <Compile Include="Settings\AppConfigKeys.cs" />
     <Compile Include="Settings\ObjectRepository.cs" />
     <Compile Include="SetUp\Hooks.cs" />
     <Compile Include="TestScript\1. POC\Sandbox\2. Step Definitions\SandboxPOC1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestScript\1. POC\Sandbox\2. Step Definitions\TestSandbox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -157,6 +164,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="TestScript\1. POC\Sandbox\1. FeatureFiles\SandboxPOC1.feature" />
+    <None Include="TestScript\1. POC\Sandbox\1. FeatureFiles\TestSandboxWebsite.feature" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Reports\" />
@@ -196,12 +204,12 @@
   <!-- <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" /> -->
   <!-- <UsingTask TaskName="TransformXml" AssemblyFile="C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Microsoft\VisualStudio\v16.0\Web\Microsoft.Web.Publishing.Tasks.dll " /> -->
   <!-- <Target Name="AfterCompile"> -->
-    <!--Generate transformed app config in the intermediate directory-->
-    <!-- <ItemGroup> -->
-      <!-- <Transforms Include="App.*.config" /> -->
-    <!-- </ItemGroup> -->
-    <!-- Transforms all the templates, dropping the output into the installer's Configuration directory -->
-    <!-- <TransformXml Source="App.config" Transform="%(Transforms.Identity)" Destination="$([System.String]::Copy('$(TargetDir)\%(&#xD;&#xA;	Transforms.Identity)').Replace('App', 'Nhsbt.LD.AutomationTests.dll').Replace('app', 'Nhsbt.LD.AutomationTests.dll'))" /> -->
+  <!--Generate transformed app config in the intermediate directory-->
+  <!-- <ItemGroup> -->
+  <!-- <Transforms Include="App.*.config" /> -->
+  <!-- </ItemGroup> -->
+  <!-- Transforms all the templates, dropping the output into the installer's Configuration directory -->
+  <!-- <TransformXml Source="App.config" Transform="%(Transforms.Identity)" Destination="$([System.String]::Copy('$(TargetDir)\%(&#xD;&#xA;	Transforms.Identity)').Replace('App', 'Nhsbt.LD.AutomationTests.dll').Replace('app', 'Nhsbt.LD.AutomationTests.dll'))" /> -->
   <!-- </Target> -->
   <!-- <Import Project="..\packages\Selenium.WebDriver.MSEdgeDriver.89.0.774.54\build\Selenium.WebDriver.MSEdgeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.89.0.774.54\build\Selenium.WebDriver.MSEdgeDriver.targets')" /> -->
   <!-- <Import Project="..\packages\Selenium.WebDriver.MSEdgeDriver.99.0.1150.46\build\Selenium.WebDriver.MSEdgeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.99.0.1150.46\build\Selenium.WebDriver.MSEdgeDriver.targets')" /> -->

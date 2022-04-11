@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Nhsbt.LD.AutomationTests.Settings;
 using System;
 using System.IO;
 using System.Reflection;
@@ -32,7 +33,9 @@ namespace Nhsbt.LD.AutomationTests.FileReaders
         /// <param name="fileName"></param>
         /// <param name="directoryPath"></param>
         /// <returns>Json Object from file</returns>
-        public JObject GetJsonObject(string fileName = "AdultDonor.json", string directoryPath = "..\\..\\Resources\\Data\\")
+
+        string fileName = ObjectRepository.Config.GetJsonFileName();
+        public JObject GetJsonObject(string fileName, string directoryPath = "..\\..\\Resources\\Data\\")
         {
             // Reads the json file using a relative path
             StreamReader streamReader = new StreamReader(GetRelativeFilePath(directoryPath, fileName));  
