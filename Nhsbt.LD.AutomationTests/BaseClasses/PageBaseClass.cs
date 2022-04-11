@@ -1,5 +1,6 @@
 ﻿using Nhsbt.LD.AutomationTests.ComponentHelpers;
 using OpenQA.Selenium;
+using System;
 
 namespace Nhsbt.LD.AutomationTests.BaseClasses
 {
@@ -11,62 +12,44 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
         public PageBaseClass(IWebDriver driver)
         {
             _driver = driver;
-        } 
+        }
 
-        #region Sandbox Environment
+        #region Elements 
 
-        #region elements
-
-        private By _homeNavButton = By.Id("t_TreeNav_0");
-        private By _dashboarNavButton = By.Id("t_TreeNav_1");
-        private By _prodcutsAndServicesNavButton = By.Id("t_TreeNav_2");
-        private By _partnersNavButton = By.Id("t_TreeNav_3");
-        private By _contactsNavButton = By.Id("t_TreeNav_4");
-        private By _activitiesNavButton = By.Id("t_TreeNav_5");
-        private By _reportsNavButton = By.Id("t_TreeNav_6");
-        private By _administrationNavButton = By.Id("t_TreeNav_7");
+        private By _partnerNavButton = By.Id("t_TreeNav_3");
 
         #endregion
 
-        #region Interactions 
+        #region Interactions
 
-        public void clickSpecificNavButton(string navButton)
+        public void ClickNavButton(string navButton)
         {
             switch (navButton)
             {
-                case "home":
-                    InputManager.Click(_homeNavButton);
+                case "Activities":
                     break;
-                case "dashboard":
-                    InputManager.Click(_dashboarNavButton);
+                case "Administration":
                     break;
-                case "products & services":
-                    InputManager.Click(_prodcutsAndServicesNavButton);
+                case "Contacts":
                     break;
-                case "partners":
-                    InputManager.Click(_partnersNavButton);                 
+                case "Dashboard":
                     break;
-                case "contacts":
-                    InputManager.Click(_contactsNavButton);
+                case "Home":
                     break;
-                case "activities":
-                    InputManager.Click(_activitiesNavButton);
+                case "Partners":
+                    InputManager.Click(_partnerNavButton);
                     break;
-                case "reports":
-                    InputManager.Click(_reportsNavButton);
+                case "Products & Services":
                     break;
-                case "administration":
-                    InputManager.Click(_administrationNavButton);
+                case "Reports":
                     break;
-            }     
+                default:
+                    Console.WriteLine("No case found");
+                    break;
+            }
         }
+
+        #endregion 
+
     }
-
-    #endregion
-
-
-    #region Navigation         
-
-    #endregion
-
 }
