@@ -38,20 +38,30 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1._POC.Sandbox._2._Step_Definitio
         }
 
 
-        [Then(@"I enter data in Search box")]
+        //[Then(@"I enter data in Search box")]
 
-        public void SearchCustomers()
+        //public void SearchCustomers()
+        //{
+        //    ObjectRepository.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+        //    ObjectRepository.TestSandboxWebsite.SearchCustomer("abc");
+        //}
+
+
+        [Then(@"I enter ""(.*)"" in Search box")]
+
+        public void SearchCustomers(String value)
         {
-            ObjectRepository.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
-            ObjectRepository.TestSandboxWebsite.SearchCustomer("abc");
+            ObjectRepository.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+            InputManager.SearchCustomer(value);
+            //ObjectRepository.TestSandboxWebsite.ClickTotalButton();
         }
 
-        [Then(@"I click on Total button")]
-        public void ClickTotalButton()
-        {
-            ObjectRepository.TestSandboxWebsite.ClickTotalButton();
+        //[Then(@"I click on Total button")]
+        //public void ClickTotalButton()
+        //{
+        //    ObjectRepository.TestSandboxWebsite.ClickTotalButton();
 
-        }
+        //}
 
     }
 }

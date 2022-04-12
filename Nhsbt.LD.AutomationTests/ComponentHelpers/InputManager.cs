@@ -1,7 +1,14 @@
 ﻿using log4net;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhsbt.LD.AutomationTests.BaseClasses;
+using Nhsbt.LD.AutomationTests.Settings;
+using OfficeOpenXml;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-
+using System.Collections.Generic;
+using System.IO;
+using System;
+using Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox;
 
 namespace Nhsbt.LD.AutomationTests.ComponentHelpers
 {
@@ -99,7 +106,45 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
             element.SendKeys(data);
             Logger.Debug("Entered data : " + data);
         }
+        private static By _searchButton = By.Id("P1_SEARCH");
+        private By _totalButton = By.XPath("//*[text()='Total']");
 
+        [DynamicData(nameof(ReadMyExcel), DynamicDataSourceType.Method)]
+        public static void SearchCustomer(String abc)
+        {
+            //BaseClass.InitWebDriver();
+            ObjectRepository.TestSandboxWebsite = new TestSandboxWebsite(ObjectRepository.Driver);
+            ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetSandboxURL());
+            GenericHelper.WaitforElementToBeDisplayed(_searchButton, 20);
+            Console.WriteLine("Wait for the page upload");
+            InputManager.EnterData(_searchButton, abc);
+            GenericHelper.WaitforElementToBeDisplayed(_searchButton, 60);
+            ObjectRepository.TestSandboxWebsite.ClickTotalButton();
+          //  BaseClass.TearDown();
+        }
+
+        public static IEnumerable<object[]> ReadMyExcel()
+        {
+            using (ExcelPackage package = new ExcelPackage(new FileInfo("data.xlsx")))
+            {
+                //Get the first worksheet in the workbook
+                ExcelWorksheet worksheet = package.Workbook.Worksheets["sheet1"];
+                int rowCount = worksheet.Dimension.End.Row; //Get the row count
+                for (int row = 2; row <= rowCount; row++)
+                {
+                    yield return new object[]
+                    {
+                     worksheet.Cells[row ,1].Value?.ToString().Trim(),
+              // worksheet.Cells[row ,2].Value?.ToString().Trim(),
+              // worksheet.Cells[row ,3].Value?.ToString().Trim(),
+
+                    };
+
+                }
+
+            }
+
+        }
         #endregion
 
         #region Dropdown Helper methods
