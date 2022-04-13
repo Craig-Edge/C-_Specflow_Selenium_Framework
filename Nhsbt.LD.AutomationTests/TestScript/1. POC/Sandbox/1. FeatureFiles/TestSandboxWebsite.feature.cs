@@ -100,6 +100,37 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Launching a website again", new string[] {
+                "testwebsite"}, SourceLine=10)]
+        public void LaunchingAWebsiteAgain()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "testwebsite"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launching a website again", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 11
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 12
+ testRunner.Given("I navigate to the dashboard of the test environment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 13
+ testRunner.When("I click on Search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 14
+ testRunner.Then("I enter data in Search box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

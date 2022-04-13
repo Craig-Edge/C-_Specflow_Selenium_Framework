@@ -78,7 +78,7 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         /// <param name="seconds"></param>
         /// <param name="minutes"></param>
         /// <param name="hours"></param>
-        public static void EnterData(By locator, string data, int seconds = 10, int minutes = 0, int hours = 0)
+        public static void EnterData(By locator, string data = "", int seconds = 10, int minutes = 0, int hours = 0)
         {
             // TODO - framework testing - needs to be tested
             GenericHelper.WaitforElementToBeDisplayed(locator, seconds, minutes, hours);
@@ -110,14 +110,16 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         private By _totalButton = By.XPath("//*[text()='Total']");
 
         [DynamicData(nameof(ReadMyExcel), DynamicDataSourceType.Method)]
-        public static void SearchCustomer(String abc)
+        public static void SearchCustomer()
         {
+            
+           
             //BaseClass.InitWebDriver();
             ObjectRepository.TestSandboxWebsite = new TestSandboxWebsite(ObjectRepository.Driver);
             ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetSandboxURL());
             GenericHelper.WaitforElementToBeDisplayed(_searchButton, 20);
             Console.WriteLine("Wait for the page upload");
-            InputManager.EnterData(_searchButton, abc);
+            EnterData(_searchButton, abc);
             GenericHelper.WaitforElementToBeDisplayed(_searchButton, 60);
             ObjectRepository.TestSandboxWebsite.ClickTotalButton();
           //  BaseClass.TearDown();

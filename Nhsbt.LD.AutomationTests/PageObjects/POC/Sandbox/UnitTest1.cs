@@ -57,7 +57,7 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.POC.Sandbox
 
         [TestMethod]
         [DynamicData(nameof(ReadMyExcel), DynamicDataSourceType.Method)]
-        public void SearchCustomer(String abc)
+        public void SearchCustomer(String abc = "")
         {
             BaseClass.InitWebDriver();
             ObjectRepository.TestSandboxWebsite = new TestSandboxWebsite(ObjectRepository.Driver);
