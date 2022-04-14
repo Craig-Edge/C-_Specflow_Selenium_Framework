@@ -32,7 +32,7 @@ namespace Nhsbt.LD.AutomationTests.FileReaders
         /// <param name="fileName"></param>
         /// <param name="directoryPath"></param>
         /// <returns>Json Object from file</returns>
-        public JObject GetJsonObject(string fileName = "AdultDonor.json", string directoryPath = "..\\..\\Resources\\Data\\JsonFiles")
+        public JObject GetJsonObject(string fileName = "AdultDonor.json", string directoryPath = "..\\..\\Resources\\Data\\JsonFiles\\")
         {
             // Reads the json file using a relative path
             StreamReader streamReader = new StreamReader(GetRelativeFilePath(directoryPath, fileName));  
