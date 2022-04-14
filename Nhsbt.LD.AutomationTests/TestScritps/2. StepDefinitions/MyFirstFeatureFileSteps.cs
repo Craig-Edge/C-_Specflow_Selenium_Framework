@@ -51,8 +51,7 @@ namespace Nhsbt.LD.AutomationTests.TestScritps._2._StepDefinitions
         {            
             var jsonObject = _jsonReaderFile.GetJsonObject();
             _scenarioContext["donorTypeData"] = jsonObject["donorType"].ToString();
-            ObjectRepository.Partners.EnterDataIntoSearchFieldAndSearch(_scenarioContext["donorTypeData"].ToString());
-            Thread.Sleep(4000);
+            ObjectRepository.Partners.EnterDataIntoSearchFieldAndSearch(_scenarioContext["donorTypeData"].ToString());           
         }
 
         [Then(@"the search result text is correct")]
