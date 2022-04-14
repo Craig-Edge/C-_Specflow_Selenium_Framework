@@ -38,8 +38,7 @@ namespace Nhsbt.LD.AutomationTests.FileReaders
         public JObject GetJsonObject(string fileName, string directoryPath = "..\\..\\Resources\\Data\\")
         {
             // Reads the json file using a relative path
-            StreamReader streamReader = new StreamReader(GetRelativeFilePath(directoryPath, fileName));  
-            
+            StreamReader streamReader = new StreamReader(GetRelativeFilePath(directoryPath, fileName));              
             // Returns parsed Json file as a Json object which can then be accessed 
             return JObject.Parse(streamReader.ReadToEnd());
         }

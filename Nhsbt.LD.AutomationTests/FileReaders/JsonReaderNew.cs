@@ -16,12 +16,9 @@ namespace Nhsbt.LD.AutomationTests.FileReaders
 
         public string extractData(String tokenName)
         {
-
             string myJsonString = File.ReadAllText("Resources/Data/AdultDonor.json");
             var jsonObject = JToken.Parse(myJsonString);
-            return jsonObject.SelectToken(tokenName).Value<string>();
-           
-        
+            return jsonObject.SelectToken(tokenName).Value<string>();   
         }
 
         public static JsonReaderNew getDataParser()

@@ -110,10 +110,8 @@ namespace Nhsbt.LD.AutomationTests.ComponentHelpers
         private By _totalButton = By.XPath("//*[text()='Total']");
 
         [DynamicData(nameof(ReadMyExcel), DynamicDataSourceType.Method)]
-        public static void SearchCustomer()
-        {
-            
-           
+        public static void SearchCustomer(String abc)
+        {         
             //BaseClass.InitWebDriver();
             ObjectRepository.TestSandboxWebsite = new TestSandboxWebsite(ObjectRepository.Driver);
             ObjectRepository.Driver.Navigate().GoToUrl(ObjectRepository.Config.GetSandboxURL());

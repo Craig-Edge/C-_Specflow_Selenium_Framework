@@ -70,15 +70,20 @@ namespace Nhsbt.LD.AutomationTests.TestScript._1_POC.Sandbox._1_FeatureFiles
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Launching a website", new string[] {
-                "testwebsite"}, SourceLine=4)]
-        public void LaunchingAWebsite()
+        public virtual void LaunchingAWebsiteAgain(string value1, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
-                    "testwebsite"};
+            string[] @__tags = new string[] {
+                    "testwebsite",
+                    "DataSource:..\\\\..\\\\..\\\\..\\\\Resources\\\\Data\\\\Data.xlsx"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launching a website", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 5
+            argumentsOfScenario.Add("Value1", value1);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launching a website again", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -88,48 +93,37 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 6
+#line 13
  testRunner.Given("I navigate to the dashboard of the test environment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 7
+#line 14
  testRunner.When("I click on Search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 8
- testRunner.Then("I enter \"data\" in Search box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 15
+ testRunner.Then(string.Format("I enter {0} in Search box", value1), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Launching a website again", new string[] {
-                "testwebsite"}, SourceLine=10)]
-        public void LaunchingAWebsiteAgain()
+        [TechTalk.SpecRun.ScenarioAttribute("Launching a website again, ExternalExamples, abc", new string[] {
+                "testwebsite",
+                "DataSource:..\\\\..\\\\..\\\\..\\\\Resources\\\\Data\\\\Data.xlsx"})]
+        public void LaunchingAWebsiteAgain_ExternalExamples_Abc()
         {
-            string[] tagsOfScenario = new string[] {
-                    "testwebsite"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launching a website again", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 11
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
 #line 12
- testRunner.Given("I navigate to the dashboard of the test environment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.LaunchingAWebsiteAgain("abc", ((string[])(null)));
 #line hidden
-#line 13
- testRunner.When("I click on Search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Launching a website again, ExternalExamples, xyz", new string[] {
+                "testwebsite",
+                "DataSource:..\\\\..\\\\..\\\\..\\\\Resources\\\\Data\\\\Data.xlsx"})]
+        public void LaunchingAWebsiteAgain_ExternalExamples_Xyz()
+        {
+#line 12
+this.LaunchingAWebsiteAgain("xyz", ((string[])(null)));
 #line hidden
-#line 14
- testRunner.Then("I enter data in Search box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
         }
     }
 }
