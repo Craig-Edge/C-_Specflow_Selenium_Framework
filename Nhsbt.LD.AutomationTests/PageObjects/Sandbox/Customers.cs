@@ -18,42 +18,12 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.Sandbox
             this._driver = driver;
         }
 
-
-        #region Elements
-
-        private By _sortByDropDown = By.Id("P59_SORT");
-        private By _moreFiltersExpansion = By.XPath("//button[@type='button'][text()='More Filters']");
-        private By _typeDropdownlabel = By.Id("P59_TYPE_LABEL");
+        #region Elements      
        
         #endregion
 
-        #region Interactions
-
-        public void ClickTwoButtons()
-        {
-            InputManager.Click(_sortByDropDown, 15);
-            InputManager.Click(_moreFiltersExpansion);
-        }
-
-        public void ClickSpecificButton(string button)
-        {
-            switch (button)
-            {
-                case "More Filters":
-                    InputManager.Click(_moreFiltersExpansion);
-                    break;
-                case "Sort By":
-                    InputManager.Click(_sortByDropDown, 15);
-                    break;
-            }
-        }
-
-        public string GetTextFromLabel()
-        {
-            string text = GenericHelper.GetElement(_typeDropdownlabel).Text;
-            return text;
-        }
-
+        #region Interactions  
+ 
         #endregion
 
         #region Navigation

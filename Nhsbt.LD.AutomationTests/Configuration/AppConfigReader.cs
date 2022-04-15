@@ -20,11 +20,6 @@ namespace Nhsbt.LD.AutomationTests.Configuration
             return (BrowserType) Enum.Parse(typeof(BrowserType), browser); 
         }
 
-        public string GetEnvironmentBaseUrl()
-        {
-            return ConfigurationManager.AppSettings.Get(AppConfigKeys.EnvironmentBaseUrl);
-        }
-
         public string GetPassword()
         {
             return ConfigurationManager.AppSettings.Get(AppConfigKeys.Password);
@@ -34,15 +29,5 @@ namespace Nhsbt.LD.AutomationTests.Configuration
         {
             return ConfigurationManager.AppSettings.Get(AppConfigKeys.Username);
         }    
-
-        public string GetDeveloperSandbox()
-        {
-            return ConfigurationManager.AppSettings.Get(AppConfigKeys.DeveloperSandbox);
-        }
-
-        public string GetTransportInformationManager()
-        {
-            return ConfigurationManager.AppSettings.Get(AppConfigKeys.TransportInformationManager);
-        }
     }
 }

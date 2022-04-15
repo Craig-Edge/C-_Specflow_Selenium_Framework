@@ -20,25 +20,9 @@ namespace Nhsbt.LD.AutomationTests.PageObjects.Sandbox
 
         #region Elements
 
-        private By _searchField = By.Id("PRODUCTS_search_field");
-        private By _goButton = By.Id("PRODUCTS_search_button");
-        private By _searchResult = By.XPath("//span[@class='a-IRR-controlsLabel'][contains(text(), 'Row text contains')]");
-
         #endregion
 
         #region Interactions
-        public void EnterDataIntoSearchFieldAndSearch(string data)
-        {
-            InputManager.EnterData(_searchField, data);
-            InputManager.Click(_goButton);
-        }
-
-        public string GetTextFromSearchField()
-        {
-            GenericHelper.WaitforElementToBeDisplayed(_searchResult);
-            string text = GenericHelper.GetElement(_searchResult).Text;
-            return text;
-        }
 
         #endregion
     }

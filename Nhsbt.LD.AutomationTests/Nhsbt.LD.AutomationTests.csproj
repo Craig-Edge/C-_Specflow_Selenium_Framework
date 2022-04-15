@@ -135,21 +135,12 @@
     <Compile Include="FileReaders\JsonReader\DataModels\DonorDataModel.cs" />
     <Compile Include="FileReaders\JsonReader\JsonReaderFile.cs" />
     <Compile Include="Interfaces\IConfig.cs" />
-    <Compile Include="PageObjects\Sandbox\ProductsAndServices.cs" />
-    <Compile Include="PageObjects\Sandbox\Reports.cs" />
     <Compile Include="PageObjects\Sandbox\Home.cs" />
-    <Compile Include="PageObjects\Sandbox\Dashboard.cs" />
-    <Compile Include="PageObjects\Sandbox\Contacts.cs" />
-    <Compile Include="PageObjects\Sandbox\Administration.cs" />
     <Compile Include="PageObjects\Sandbox\Customers.cs" />
-    <Compile Include="PageObjects\Sandbox\Activities.cs" />
-    <Compile Include="PageObjects\Sandbox\Partners.cs" />
     <Compile Include="Settings\AppConfigKeys.cs" />
     <Compile Include="Settings\ObjectRepository.cs" />
     <Compile Include="SetUp\Hooks.cs" />
-    <Compile Include="TestScript\1. POC\Sandbox\2. Step Definitions\SandboxPOC1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestScritps\2. StepDefinitions\MyFirstFeatureFileSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -174,11 +165,11 @@
     <None Include="SpecRunTestProfile_2011_09.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="TestScript\1. POC\Sandbox\1. FeatureFiles\SandboxPOC1.feature" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Reports\" />
     <Folder Include="Resources\Screenshots\" />
+    <Folder Include="TestScript\Training\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
