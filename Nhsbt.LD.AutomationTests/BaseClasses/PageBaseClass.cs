@@ -66,50 +66,19 @@ namespace Nhsbt.LD.AutomationTests.BaseClasses
                 default:
                     Console.WriteLine("No case found");
                     break;
+                case "administration":
+                    InputManager.Click(_administrationNavButton);
+                    break;
             }
-        }
-        public void ClickActivitesNavButton()
-        {
-            InputManager.Click(_activitesNavButton);
-            ObjectRepository.Activities = new Activities(_driver);
-        }
-        public void ClickAdministrationNavButton()
-        {
-            InputManager.Click(_administrationNavButton);
-            ObjectRepository.Administration = new Administration(_driver);
-        }
-        public void ClickContactsNavButton()
-        {
-            InputManager.Click(_contactsNavButton);
-            ObjectRepository.Contacts = new Contacts(_driver);
-        }
-        public void ClickDashboardNavButton()
-        {
-            InputManager.Click(_dashboardNavButton);
-            ObjectRepository.Dashboard = new Dashboard(_driver);
-        }
-        public void ClickHomeNavButton()
-        {
-            InputManager.Click(_homeNavButton);
-            ObjectRepository.Home = new Home(_driver);
-        }
-        public void ClickPartnersNavButton()
-        {
-            InputManager.Click(_partnerNavButton);
-            ObjectRepository.Partners = new Partners(_driver);
-        }
+            #endregion
 
-        public void ClickProductsAndServicesNavButton()
-        {
-            InputManager.Click(_productsAndServicesButton);
-            ObjectRepository.ProductsAndServices = new ProductsAndServices(_driver);
+            #region Navigation         
+
+            #endregion            
         }
-        public void ClickReportsNavButton()
-        {
-            InputManager.Click(_reportsNavButton);
-            ObjectRepository.Reports = new Reports(_driver);
-        }
-        #endregion
+    }
+
+    #endregion
 
     }
 }

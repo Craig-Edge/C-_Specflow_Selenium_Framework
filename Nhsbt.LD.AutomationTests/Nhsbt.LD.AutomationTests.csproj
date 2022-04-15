@@ -147,6 +147,7 @@
     <Compile Include="Settings\AppConfigKeys.cs" />
     <Compile Include="Settings\ObjectRepository.cs" />
     <Compile Include="SetUp\Hooks.cs" />
+    <Compile Include="TestScript\1. POC\Sandbox\2. Step Definitions\SandboxPOC1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestScritps\2. StepDefinitions\MyFirstFeatureFileSteps.cs" />
   </ItemGroup>
@@ -173,7 +174,7 @@
     <None Include="SpecRunTestProfile_2011_09.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="TestScritps\1. FeatureFiles\MyFirstFeatureFile.feature" />
+    <None Include="TestScript\1. POC\Sandbox\1. FeatureFiles\SandboxPOC1.feature" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Reports\" />

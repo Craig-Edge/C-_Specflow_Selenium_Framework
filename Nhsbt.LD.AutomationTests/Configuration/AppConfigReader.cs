@@ -34,5 +34,15 @@ namespace Nhsbt.LD.AutomationTests.Configuration
         {
             return ConfigurationManager.AppSettings.Get(AppConfigKeys.Username);
         }    
+
+        public string GetDeveloperSandbox()
+        {
+            return ConfigurationManager.AppSettings.Get(AppConfigKeys.DeveloperSandbox);
+        }
+
+        public string GetTransportInformationManager()
+        {
+            return ConfigurationManager.AppSettings.Get(AppConfigKeys.TransportInformationManager);
+        }
     }
 }
